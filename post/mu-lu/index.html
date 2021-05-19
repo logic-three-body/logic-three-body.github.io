@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>目录 | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1621433165629">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1621433783334">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="目录 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
@@ -15,9 +15,8 @@
 渲染器基础
 tinyrender+GAMES101光栅化系列
 TinyRender之旅 -&gt; 渲染管线探秘
-tinyraytrace+GAMES101光线追踪系列
-WebGL与THREEJS
-WebGL three.js..." />
+GAMES101-&gt;assignment3 Shader and Graphic pipeline
+tin..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -27,7 +26,7 @@ WebGL three.js..." />
       <div class="main-content">
         <div class="site-header">
   <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1621433165629" alt="">
+  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1621433783334" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -106,10 +105,12 @@ WebGL three.js..." />
 <h3 id="渲染器基础">渲染器基础</h3>
 <h4 id="tinyrendergames101光栅化系列">tinyrender+GAMES101光栅化系列</h4>
 <h5 id="tinyrender之旅-渲染管线探秘"><a href="https://logic-three-body.github.io/post/tinyrender-zhi-lu-greater-xuan-ran-guan-xian-tan-mi/">TinyRender之旅 -&gt; 渲染管线探秘</a></h5>
+<h5 id="games101-assignment3-shader-and-graphic-pipeline"><a href="https://logic-three-body.github.io/post/games101-greaterassignment3-shader-and-graphic-pipeline/">GAMES101-&gt;assignment3 Shader and Graphic pipeline</a></h5>
 <h4 id="tinyraytracegames101光线追踪系列">tinyraytrace+GAMES101光线追踪系列</h4>
 <h3 id="webgl与threejs">WebGL与THREEJS</h3>
 <h4 id="webgl-threejs-example-研究">WebGL three.js-example 研究</h4>
 <h5 id="misc_controls_pointerlock-漫游"><a href="https://logic-three-body.github.io/post/webgl-threejs-example-yan-jiu-misc_controls_pointerlock/">misc_controls_pointerlock 漫游</a></h5>
+<h5 id="threejs-shader-实现phong光照模型"><a href="https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/">THREE.JS shader 实现Phong光照模型</a></h5>
 <h4 id="games202高质量实时渲染">GAMES202高质量实时渲染</h4>
 <h5 id="assignment1"><a href="https://logic-three-body.github.io/post/games202-zuo-ye-1/">assignment1</a></h5>
 <h2 id="专业课复习笔记">专业课复习笔记</h2>
@@ -127,6 +128,7 @@ WebGL three.js..." />
 <li><a href="#tinyrendergames101%E5%85%89%E6%A0%85%E5%8C%96%E7%B3%BB%E5%88%97">tinyrender+GAMES101光栅化系列</a>
 <ul>
 <li><a href="#tinyrender%E4%B9%8B%E6%97%85-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%8E%A2%E7%A7%98">TinyRender之旅 -&gt; 渲染管线探秘</a></li>
+<li><a href="#games101-assignment3-shader-and-graphic-pipeline">GAMES101-&gt;assignment3 Shader and Graphic pipeline</a></li>
 </ul>
 </li>
 <li><a href="#tinyraytracegames101%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E7%B3%BB%E5%88%97">tinyraytrace+GAMES101光线追踪系列</a></li>
@@ -137,6 +139,7 @@ WebGL three.js..." />
 <li><a href="#webgl-threejs-example-%E7%A0%94%E7%A9%B6">WebGL three.js-example 研究</a>
 <ul>
 <li><a href="#misc_controls_pointerlock-%E6%BC%AB%E6%B8%B8">misc_controls_pointerlock 漫游</a></li>
+<li><a href="#threejs-shader-%E5%AE%9E%E7%8E%B0phong%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B">THREE.JS shader 实现Phong光照模型</a></li>
 </ul>
 </li>
 <li><a href="#games202%E9%AB%98%E8%B4%A8%E9%87%8F%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93">GAMES202高质量实时渲染</a>
