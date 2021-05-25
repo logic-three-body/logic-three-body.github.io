@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://logic-three-body.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-05-19T14:31:50.780Z</updated>
+    <updated>2021-05-25T12:30:09.348Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://logic-three-body.github.io/"/>
     <link rel="self" href="https://logic-three-body.github.io/atom.xml"/>
@@ -10,6 +10,1622 @@
     <logo>https://logic-three-body.github.io/images/avatar.png</logo>
     <icon>https://logic-three-body.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[数字图像处理知识总结]]></title>
+        <id>https://logic-three-body.github.io/post/shu-zi-tu-xiang-chu-li-zhi-shi-zong-jie/</id>
+        <link href="https://logic-three-body.github.io/post/shu-zi-tu-xiang-chu-li-zhi-shi-zong-jie/">
+        </link>
+        <updated>2021-05-25T12:25:54.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="数字图像处理知识总结">数字图像处理知识总结</h1>
+<p>幕布链接：<a href="https://share.mubu.com/doc/5TVGy1QLQvq">here</a></p>
+<p>部分内容在<a href="https://share.mubu.com/doc/7p7gHyyHh1q">数字媒体技术基础</a>已经总结</p>
+<h2 id="2-数字图像表示及处理">2 数字图像表示及处理</h2>
+<h3 id="人眼成像过程">人眼成像过程</h3>
+<ul>
+<li>
+<p>组成</p>
+<ul>
+<li>
+<p>角膜 1/6</p>
+</li>
+<li>
+<p>虹膜 5/6</p>
+</li>
+<li>
+<p>脉络膜</p>
+</li>
+<li>
+<p>瞳孔</p>
+<ul>
+<li>
+<p>虹膜中间</p>
+</li>
+<li>
+<p>光圈</p>
+</li>
+</ul>
+</li>
+<li>
+<p>视网膜</p>
+<ul>
+<li>光敏细胞</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>过程</p>
+<ul>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/7DCCAAC01F3146761621750796.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>例子<img src="https://api2.mubu.com/v3/document_image/E54E9552ABF0456C1621751033.jpg" alt="img" loading="lazy"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>人眼机理 照相机</p>
+<ul>
+<li>
+<p>瞳孔 &lt;=&gt; 光圈</p>
+</li>
+<li>
+<p>晶状体 &lt;=&gt; 透镜</p>
+</li>
+<li>
+<p>视细胞</p>
+<ul>
+<li>
+<p>锥状细胞</p>
+<ul>
+<li>
+<p>强光检测亮度、颜色</p>
+</li>
+<li>
+<p>6,000,000～7,000,000</p>
+</li>
+<li>
+<p>对颜色敏感</p>
+</li>
+<li>
+<p>分辨率高</p>
+</li>
+</ul>
+</li>
+<li>
+<p>杆状细胞</p>
+<ul>
+<li>
+<p>弱光检测亮度，无色彩感觉</p>
+</li>
+<li>
+<p>75,000,000～150,000,000</p>
+</li>
+<li>
+<p>分辨率低</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>成像过程</p>
+<ul>
+<li>
+<p>视细胞 受光刺激 产生 电脉冲 -&gt; 视神经中枢-&gt;大脑成像</p>
+</li>
+<li>
+<p>物体 反射/透射 光谱一部分 吸收其余部分 呈现颜色</p>
+</li>
+<li>
+<p>消色光/单色光</p>
+<ul>
+<li>
+<p>无颜色的光</p>
+</li>
+<li>
+<p>灰度</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>色彩感知</p>
+<ul>
+<li>
+<p>度量</p>
+<ul>
+<li>
+<p>亮度</p>
+<ul>
+<li>明亮</li>
+</ul>
+</li>
+<li>
+<p>色调</p>
+<ul>
+<li>颜色种类</li>
+</ul>
+</li>
+<li>
+<p>饱和度</p>
+<ul>
+<li>深浅</li>
+</ul>
+</li>
+<li>
+<p>色度</p>
+<ul>
+<li>色调和饱和度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>三基色</p>
+<ul>
+<li>
+<p>r g b</p>
+</li>
+<li>
+<p>混色</p>
+<ul>
+<li>
+<p>红绿=黄</p>
+</li>
+<li>
+<p>红蓝=品红</p>
+</li>
+<li>
+<p>绿蓝=青</p>
+</li>
+<li>
+<p>红绿蓝=白</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>例题</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/F766AA81BCFB4BD31621752354.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h3 id="电磁波成像">电磁波成像</h3>
+<ul>
+<li>
+<p>电磁波谱按波长递减</p>
+<ul>
+<li>gama射线、x射线、紫外线（工业检测、显微镜）、可见光、红外线（车牌识别）、微波（雷达）、无线电波（医学MRI）</li>
+</ul>
+</li>
+<li>
+<p>其他成像</p>
+<ul>
+<li>声波、超声波（B超）、计算机合成图像</li>
+</ul>
+</li>
+<li>
+<p>例题</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/9980136EAF7C49621621752803.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h3 id="简单图像形成模型">简单图像形成模型</h3>
+<ul>
+<li>
+<p>图像记录 物体 辐射能量 空间分布</p>
+<ul>
+<li>
+<p>分布 为 空间坐标、波长、时间的函数</p>
+</li>
+<li>
+<p>I=(x,y,z,lamda,t)</p>
+<ul>
+<li>lamda:波长</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>平面单色静止图像</p>
+<ul>
+<li>
+<p>f(x,y)=i(x,y)* r(x,y)</p>
+<ul>
+<li>
+<p>i 入射分量</p>
+</li>
+<li>
+<p>r 反射分量</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="图像获取">图像获取</h3>
+<ul>
+<li>
+<p>采集部件</p>
+<ul>
+<li>
+<p>光敏器件</p>
+</li>
+<li>
+<p>扫描系统</p>
+</li>
+<li>
+<p>模/数转换</p>
+</li>
+</ul>
+</li>
+<li>
+<p>输入设备</p>
+<ul>
+<li>
+<p>CCD光电器件</p>
+<ul>
+<li>
+<p>摄像机</p>
+</li>
+<li>
+<p>数字相机</p>
+</li>
+<li>
+<p>平板扫描仪</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>输出设备</p>
+<ul>
+<li>滚筒扫描仪</li>
+</ul>
+</li>
+<li>
+<p>例题</p>
+<ul>
+<li>打印机不属于采集设备</li>
+</ul>
+</li>
+</ul>
+<h3 id="图像数字化">图像数字化</h3>
+<h4 id="步骤">步骤</h4>
+<ul>
+<li>
+<p>扫描</p>
+<ul>
+<li>按顺序对图像遍历</li>
+</ul>
+</li>
+<li>
+<p>采样</p>
+<ul>
+<li>用光电传感器对像素位置上的像素取值</li>
+</ul>
+</li>
+<li>
+<p>量化</p>
+<ul>
+<li>对采样值模数转换</li>
+</ul>
+</li>
+</ul>
+<h4 id="设备">设备</h4>
+<ul>
+<li>
+<p>采样孔</p>
+<ul>
+<li>单独观测特定图像像素 不受图像其他部分影响</li>
+</ul>
+</li>
+<li>
+<p>图像扫描机构</p>
+<ul>
+<li>让 采样孔 按照 预先规定的方式在图像移动 ，按顺序观测每一个像素</li>
+</ul>
+</li>
+<li>
+<p>光传感器</p>
+<ul>
+<li>通过采样孔测量图像 每像素亮度
+<ul>
+<li>通常 为 光强 转换为 电压或电流变换器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>量化器</p>
+<ul>
+<li>将传感器输出的连续量 转化为 整数值</li>
+</ul>
+</li>
+<li>
+<p>输出存储体</p>
+<ul>
+<li>把量化器产生的灰度值按某格式存储</li>
+</ul>
+</li>
+</ul>
+<h4 id="性能">性能</h4>
+<ul>
+<li>
+<p>空间分辨率 采样决定</p>
+<ul>
+<li>
+<p>单位尺寸采样像素数</p>
+</li>
+<li>
+<p>采样孔径与间距大小和可变范围决定</p>
+</li>
+</ul>
+</li>
+<li>
+<p>灰度分辨率 量化决定</p>
+<ul>
+<li>量化等级（位深度） 颜色深度</li>
+</ul>
+</li>
+<li>
+<p>图像大小</p>
+<ul>
+<li>扫描最大幅度</li>
+</ul>
+</li>
+<li>
+<p>量测特征</p>
+<ul>
+<li>测量的精度</li>
+</ul>
+</li>
+<li>
+<p>扫描速度</p>
+<ul>
+<li>采样数据传输速度</li>
+</ul>
+</li>
+<li>
+<p>噪声 量化噪声/误差</p>
+<ul>
+<li>数字化器噪声水平</li>
+</ul>
+</li>
+<li>
+<p>其他</p>
+<ul>
+<li>价格</li>
+</ul>
+</li>
+</ul>
+<h4 id="采样-量化依据">采样 量化依据</h4>
+<ul>
+<li>二维采样定理 Nyquist准则</li>
+</ul>
+<h4 id="采样点-量化级数-数字媒体技术期末复习总结">采样点 量化级数 <a href="https://share.mubu.com/doc/7p7gHyyHh1q">数字媒体技术期末复习总结</a></h4>
+<ul>
+<li>越高越好</li>
+</ul>
+<h4 id="像素关系">像素关系</h4>
+<ul>
+<li>
+<p>4邻域</p>
+</li>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/94905986238044361621755609.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>4对角邻域</p>
+</li>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/30B819FE9872405E1621755618.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>8邻域</p>
+</li>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/E2665FB120764D9D1621755628.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>邻接性</p>
+<ul>
+<li>
+<p>V：灰度值集合</p>
+<ul>
+<li>如二值图像 V={1}</li>
+</ul>
+</li>
+<li>
+<p>如果q在N(p)中，具有V中数值两数为邻接</p>
+</li>
+<li>
+<p>4邻接</p>
+</li>
+<li>
+<p>8邻接</p>
+</li>
+<li>
+<p>m邻接/混合邻接</p>
+</li>
+</ul>
+</li>
+<li>
+<p>连通性</p>
+</li>
+<li>
+<p>从p到q有特定像素序列</p>
+</li>
+<li>
+<p>区域</p>
+</li>
+<li>
+<p>连通区</p>
+</li>
+<li>
+<p>边界 边缘</p>
+<ul>
+<li>
+<p>边界</p>
+<ul>
+<li>
+<p>闭合通路</p>
+</li>
+<li>
+<p>整体</p>
+</li>
+</ul>
+</li>
+<li>
+<p>边缘</p>
+<ul>
+<li>
+<p>某些导数值（超过预先设定阈值）像素形成</p>
+</li>
+<li>
+<p>局部</p>
+<ul>
+<li>灰度级测量不连续</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>放大/收缩图像</p>
+<ul>
+<li>
+<p>放大</p>
+<ul>
+<li>
+<p>创立新像素位置</p>
+</li>
+<li>
+<p>赋予像素值</p>
+</li>
+</ul>
+</li>
+<li>
+<p>缩小</p>
+<ul>
+<li>删除行列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="距离度量-数字媒体技术期末复习总结">距离度量 <a href="https://share.mubu.com/doc/7p7gHyyHh1q">数字媒体技术期末复习总结</a></h4>
+<h4 id="图像格式">图像格式</h4>
+<ul>
+<li>
+<p>bmp</p>
+</li>
+<li>
+<p>tiff</p>
+</li>
+<li>
+<p>gif</p>
+</li>
+<li>
+<p>pcx</p>
+</li>
+<li>
+<p>jpeg</p>
+<ul>
+<li>joint photographer’s experts group</li>
+</ul>
+</li>
+</ul>
+<h4 id="灰度直方图-数字媒体技术期末复习总结">灰度直方图 <a href="https://share.mubu.com/doc/7p7gHyyHh1q">数字媒体技术期末复习总结</a></h4>
+<ul>
+<li>
+<p>例题</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/595124E78FBF4F7E1621756598.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h2 id="3-vc-图像处理">3 vc++ 图像处理</h2>
+<h3 id="bmp">bmp</h3>
+<h4 id="特点">特点</h4>
+<ul>
+<li>
+<p>格式：与硬件设备无关</p>
+</li>
+<li>
+<p>难压缩，占用空间大</p>
+</li>
+<li>
+<p>深度:1bits,4bits,8bits,24bits</p>
+</li>
+</ul>
+<h4 id="扫描方式">扫描方式</h4>
+<ul>
+<li>从左到右，从下到上</li>
+</ul>
+<h4 id="图像-框架">图像 框架</h4>
+<ul>
+<li>如图<img src="https://api2.mubu.com/v3/document_image/BE4AB55919A047D51621742033.jpg" alt="img" loading="lazy"></li>
+</ul>
+<h5 id="文件头">文件头</h5>
+<ul>
+<li>
+<p>bfType：位图文件类型 0x424D 字符串“BM”</p>
+</li>
+<li>
+<p>bfSize：位图文件大小 包括这14个Byte</p>
+</li>
+<li>
+<p>bfReserved1，bfReserved2:Windows保留字</p>
+</li>
+<li>
+<p>bfOffBits：文件头到实际位图数据偏移字节数</p>
+</li>
+</ul>
+<h5 id="信息头">信息头</h5>
+<ul>
+<li>
+<p>biSize：本结构长度 40Bytes</p>
+</li>
+<li>
+<p>biWidth：位图宽度 pixel</p>
+</li>
+<li>
+<p>biHeight：位图高度 pixel</p>
+</li>
+<li>
+<p>biPlanes：目标设备级别 1</p>
+</li>
+<li>
+<p>biBitCount：每像素所占位数bit</p>
+</li>
+<li>
+<p>biCompression：位图压缩类型</p>
+<ul>
+<li>例如BI_RGB</li>
+</ul>
+</li>
+<li>
+<p>biSizeImage：实际位图数据占用字节数</p>
+</li>
+<li>
+<p>biXPelsPerMeter:目标设备水平分辨率 像素/米</p>
+</li>
+<li>
+<p>biYPelsPerMeter：目标设备垂直分辨率 像素/米</p>
+</li>
+<li>
+<p>biClrUsed：位图实际用到的颜色数</p>
+<ul>
+<li>若为0，则颜色数=2^biBitCount<br>
+- 例如rgb图像</li>
+</ul>
+</li>
+<li>
+<p>biClrImportant：位图显示过程重要颜色数</p>
+<ul>
+<li>若为0则全重要</li>
+</ul>
+</li>
+</ul>
+<h5 id="颜色表调色板">颜色表/调色板</h5>
+<ul>
+<li>
+<p>颜色表是RGBQUAD数组</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/30C4BA5992C24AFA1621747955.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h5 id="位图数据">位图数据</h5>
+<ul>
+<li>
+<p>记录每一个像素值R G B （存储顺序为B G R）</p>
+</li>
+<li>
+<p>若有颜色表，则位图数据为调色板索引值</p>
+</li>
+<li>
+<p>注意</p>
+<ul>
+<li>
+<p>（Windows）扫描行 所占字节数 为 4 的倍数 ，不足的要扩充</p>
+<ul>
+<li>
+<p>DataSizePerLine=int[(biWidth*biBitCount/8+3)/4]*4</p>
+</li>
+<li>
+<p>不压缩位图数据大小</p>
+</li>
+<li>
+<p>biSizeImage=DataSizePerLine*biHeight</p>
+<ul>
+<li>扫描顺序：下到上，左到右，图像坐标零点在左下角</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="例题">例题<img src="https://api2.mubu.com/v3/document_image/F176741904BA4DFB1621749705.jpg" alt="img" loading="lazy"></h2>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-图像变换与运算">4 图像变换与运算</h2>
+<h3 id="傅立叶变换">傅立叶变换</h3>
+<h4 id="一维傅立叶变换">一维傅立叶变换</h4>
+<h4 id="二维傅立叶变换">二维傅立叶变换</h4>
+<ul>
+<li>
+<p>性质</p>
+<ul>
+<li>
+<p>分离性</p>
+</li>
+<li>
+<p>平移性</p>
+</li>
+<li>
+<p>周期性和共轭对称性</p>
+</li>
+<li>
+<p>旋转性</p>
+</li>
+<li>
+<p>分配律</p>
+<ul>
+<li>乘法不满足</li>
+</ul>
+</li>
+<li>
+<p>尺度变换</p>
+</li>
+<li>
+<p>平均值</p>
+<ul>
+<li>原点值和函数平均值成正比</li>
+</ul>
+</li>
+<li>
+<p>卷积</p>
+</li>
+<li>
+<p>相关</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="快速傅立叶变换-fft">快速傅立叶变换 fft</h4>
+<h4 id="傅立叶逆变换">傅立叶逆变换</h4>
+<h4 id="可分离变换">可分离变换</h4>
+<ul>
+<li>
+<p>g(x,y,u,v)=g1(x,u)g2(y,v)</p>
+</li>
+<li>
+<p>傅立叶变换是可分离变换的特例</p>
+</li>
+</ul>
+<h4 id="图像运算">图像运算</h4>
+<h5 id="点运算见第五章">点运算（见第五章）</h5>
+<h5 id="局域运算见第五章">局域运算（见第五章）</h5>
+<h5 id="代数运算">代数运算</h5>
+<ul>
+<li>
+<p>加减乘除</p>
+</li>
+<li>
+<p>用途</p>
+<ul>
+<li>
+<p>加</p>
+<ul>
+<li>均值降噪
+<ul>
+<li>多幅图像求均值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>减</p>
+<ul>
+<li>
+<p>减去背景</p>
+</li>
+<li>
+<p>运动检测</p>
+</li>
+<li>
+<p>梯度幅度</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="几何运算">几何运算</h5>
+<h6 id="概念">概念</h6>
+<ul>
+<li>改变空间关系</li>
+</ul>
+<h6 id="空间变换">空间变换</h6>
+<ul>
+<li>
+<p>像素位置移动</p>
+</li>
+<li>
+<p>变换后保证 曲线连续性 物体连通性</p>
+</li>
+<li>
+<p>g(x,y)=f[a(x,y),b(x,y) ]</p>
+<ul>
+<li>a，b唯一描述 空间变换</li>
+</ul>
+</li>
+</ul>
+<h6 id="灰度级插值">灰度级插值</h6>
+<ul>
+<li>
+<p>输入坐标值为整数 运算输出可能不为整数</p>
+</li>
+<li>
+<p>g(x,y)=f[a(x,y),b(x,y) ]</p>
+<ul>
+<li>f(x,y) 一个像素 往往 被映射到g(x,y)几个位置</li>
+</ul>
+</li>
+<li>
+<p>向前映射 移交映射 pixel carry over</p>
+<ul>
+<li>
+<p>输入 img 像素 -&gt; 输出，若一个像素 映射到 四个 输出像素间 则 插值</p>
+</li>
+<li>
+<p>映射输出图像外 浪费</p>
+</li>
+</ul>
+</li>
+<li>
+<p>向后映射 像素填充 pixel filling</p>
+<ul>
+<li>
+<p>输出 img 像素 -&gt;输入，若一个像素 映射到 四个 输入像素间 则插值</p>
+</li>
+<li>
+<p>逐像素、逐行生成 输出 img</p>
+</li>
+</ul>
+</li>
+<li>
+<p>插值</p>
+<ul>
+<li>
+<p>最近邻（零阶）</p>
+<ul>
+<li>输出灰度值等于离他映射最近灰度</li>
+</ul>
+</li>
+<li>
+<p>双线性</p>
+</li>
+<li>
+<p>高阶</p>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="变换">变换</h6>
+<ul>
+<li>
+<p>平移</p>
+</li>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/5E0C561CCAD842011621741278.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>缩放</p>
+</li>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/32AF0DA5A1F64BB91621741287.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>旋转</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/B5108C70034C4F631621741293.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-图像增强">5 图像增强</h2>
+<h3 id="概述">概述</h3>
+<ul>
+<li>
+<p>突出 图像 有用信息 削弱 无用信息</p>
+<ul>
+<li>
+<p>目的</p>
+<ul>
+<li>便于 后续 人工/机器 观察 分析</li>
+</ul>
+</li>
+<li>
+<p>图像信息 有损</p>
+</li>
+<li>
+<p>预处理</p>
+</li>
+</ul>
+<p>空域增强</p>
+<ul>
+<li>
+<p>二维空间 对 图像像素 灰度值 处理</p>
+</li>
+<li>
+<p>灰度变换</p>
+<ul>
+<li>
+<p>像素 灰度值 -数学公式 -&gt; 新灰度值</p>
+<ul>
+<li>点运算</li>
+</ul>
+</li>
+<li>
+<p>对比度增强 直方图均衡</p>
+</li>
+</ul>
+</li>
+<li>
+<p>空间滤波</p>
+<ul>
+<li>
+<p>邻域处理 局域运算</p>
+</li>
+<li>
+<p>模版 对 像素 周围邻域像素 -数学运算-&gt; 新灰度值</p>
+</li>
+<li>
+<p>图像平滑 锐化</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>频域增强</p>
+<ul>
+<li>
+<p>对 图像 傅立叶变换</p>
+</li>
+<li>
+<p>空间域 -&gt; 频率域</p>
+</li>
+<li>
+<p>对频谱 操作</p>
+</li>
+<li>
+<p>反变换回 空间域</p>
+</li>
+</ul>
+</li>
+<li>
+<p>按对象区分</p>
+<ul>
+<li>
+<p>灰度图增强</p>
+</li>
+<li>
+<p>彩色图增强</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="空域增强">空域增强</h3>
+<h4 id="灰度变换增强">灰度变换增强</h4>
+<ul>
+<li>
+<p>点运算</p>
+</li>
+<li>
+<p>对比度增强</p>
+</li>
+<li>
+<p>线性灰度变换</p>
+<ul>
+<li>
+<p>g(x,y)=a*f(x,y)+b</p>
+<ul>
+<li>
+<p>a=1,b=0 不变</p>
+</li>
+<li>
+<p>a=1,b!=0 上/下移 亮/暗</p>
+</li>
+<li>
+<p>a&gt;1 对比度增强</p>
+</li>
+<li>
+<p>0&lt;a&lt;1 对比度减小</p>
+</li>
+<li>
+<p>a&lt;0 亮区暗 暗区亮 求补</p>
+</li>
+<li>
+<p>图</p>
+<ul>
+<li>如图<img src="https://api2.mubu.com/v3/document_image/0838F3BAF86A462D1621660557.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>分段线性变换</p>
+<ul>
+<li>
+<p>局部拉伸</p>
+</li>
+<li>
+<p>不同范围灰度值进行不同拉伸处理</p>
+</li>
+<li>
+<p>图</p>
+<ul>
+<li>如图<img src="https://api2.mubu.com/v3/document_image/7C2086A18ACD4E631621660697.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>非线性变换</p>
+<ul>
+<li>
+<p>在整个灰度范围内 利用非线性变换函数 对灰度范围 扩展/压缩</p>
+</li>
+<li>
+<p>对数扩展</p>
+<ul>
+<li>g(x,y)=C*ln[f(x,y)+1]
+<ul>
+<li>如图<img src="https://api2.mubu.com/v3/document_image/172D9D5162954F381621660930.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>指数扩展</p>
+<ul>
+<li>
+<p>g(x,y)=(a^c*[f(x,y)-b])-1</p>
+</li>
+<li>
+<p>b可改变曲线起始位置</p>
+</li>
+<li>
+<p>c可改变曲线变化速率</p>
+</li>
+<li>
+<p>可对高亮度区进行大幅扩展</p>
+</li>
+</ul>
+</li>
+<li>
+<p>伽马变换</p>
+<ul>
+<li>
+<p>g(x,y)=(f(x,y)+esp)^r</p>
+<ul>
+<li>
+<p>f,g 范围 [0,1]</p>
+</li>
+<li>
+<p>esp 补偿系数</p>
+</li>
+<li>
+<p>r 伽马系数</p>
+<ul>
+<li>可选择性 增强 低灰度区域对比度 或 高灰度区对比度<img src="https://api2.mubu.com/v3/document_image/DBD2F055A78A471D1621661392.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>其他</p>
+<ul>
+<li>
+<p>求反</p>
+</li>
+<li>
+<p>动态范围压缩</p>
+</li>
+<li>
+<p>阶梯量化</p>
+</li>
+<li>
+<p>阈值切分</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>课堂练习（提问）</p>
+<ul>
+<li>
+<p>不在范围内的灰度值怎么办？</p>
+</li>
+<li>
+<p>解<img src="https://api2.mubu.com/v3/document_image/81569A45A14043C21621661663.jpg" alt="img" loading="lazy"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="直方图增强">直方图增强</h4>
+<ul>
+<li>
+<p>p(r)=n(r)</p>
+<ul>
+<li>
+<p>n(r) 灰度为r 像素数</p>
+</li>
+<li>
+<p>p(r)=n(r)/N</p>
+<ul>
+<li>N:总像素数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>直方图均衡化 <a href="https://mubu.com/doc50rcPGgAYM0">数字媒体技术期末复习总结</a></p>
+<ul>
+<li>
+<p>搜索均衡化</p>
+</li>
+<li>
+<p>⚠️注意 图像处理专业课的均衡化需要看以下举例</p>
+</li>
+<li>
+<p>举例</p>
+<ul>
+<li>如图<img src="https://api2.mubu.com/v3/document_image/1A0F78200C654F8B1621662815.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/F4C937A6516E4FAD1621662815.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/825D6646699F4EE51621662815.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>简化公式</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/81E3B5737C99427D1621662898.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="平滑-空间滤波">平滑 空间滤波</h4>
+<ul>
+<li>
+<p>邻域平均 线性</p>
+<ul>
+<li>
+<p>均值滤波（局部平滑）</p>
+<ul>
+<li>
+<p>去除不相干细节</p>
+</li>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/9CE274A0E0B9422A1621663892.jpg" alt="img" loading="lazy"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>高斯滤波 加权平均</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/16C224911C284EB91621663882.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>中值滤波 非线性</p>
+<ul>
+<li>
+<p>步骤</p>
+<ul>
+<li>
+<p>确定奇数像素窗口W</p>
+</li>
+<li>
+<p>窗口内 像素 按灰度值从小到大排序</p>
+</li>
+<li>
+<p>中间像素代替灰度值</p>
+</li>
+</ul>
+</li>
+<li>
+<p>去除孤立像素</p>
+<ul>
+<li>即 相对邻近像素过亮/暗</li>
+</ul>
+</li>
+<li>
+<p>除了中值代替，也可以最大值最小值</p>
+</li>
+</ul>
+</li>
+<li>
+<p>平滑-&gt;减噪</p>
+<ul>
+<li>负面效应 边缘模糊</li>
+</ul>
+</li>
+<li>
+<p>举例</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/23A5AB2099DF43FF1621664206.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/1AB2C88A1A004F501621664206.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h4 id="锐化">锐化</h4>
+<ul>
+<li>
+<p>增强反差 边缘信息 便于轮廓提取</p>
+<ul>
+<li>边缘 轮廓 是变化最大处</li>
+</ul>
+</li>
+<li>
+<p>微分</p>
+<ul>
+<li>
+<p>增强边缘</p>
+</li>
+<li>
+<p>削弱变化缓慢区</p>
+</li>
+<li>
+<p>边缘检测</p>
+</li>
+</ul>
+</li>
+<li>
+<p>差分代替微分</p>
+<ul>
+<li>
+<p>公式</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/803106F22271471A1621664544.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>举例</p>
+<ul>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/13EA8137591842B41621664730.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>分析</p>
+<ul>
+<li>
+<p>整个斜坡 一阶微分不为0 二阶微分 非0值只在斜坡起始处 终点处</p>
+<ul>
+<li>
+<p>一阶微分 较粗边缘</p>
+</li>
+<li>
+<p>二阶微分 较细边缘</p>
+</li>
+</ul>
+</li>
+<li>
+<p>噪点处 二阶比一阶反应强烈</p>
+<ul>
+<li>
+<p>细节增强 ，二阶优于一阶</p>
+</li>
+<li>
+<p>二阶有过渡（正回到负） ，双线 现象</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>结论</p>
+<ul>
+<li>
+<p>一阶 产生宽边缘</p>
+</li>
+<li>
+<p>二阶 细节 反应强</p>
+</li>
+<li>
+<p>一阶 灰度阶梯 反应强</p>
+</li>
+<li>
+<p>二阶                       双响应</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>一阶微分 梯度算子</p>
+<ul>
+<li>
+<p>roberts</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/7109842A84B24F7A1621665516.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>sobel</p>
+<ul>
+<li>
+<p>图<img src="https://api2.mubu.com/v3/document_image/F783BC08D82041F01621665525.jpg" alt="img" loading="lazy"></p>
+</li>
+<li>
+<p>sx对水平边缘 响应大</p>
+</li>
+<li>
+<p>sy 垂直</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>二阶微分 拉普拉斯算子</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/A5749E1E719749081621665563.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>注意</p>
+<ul>
+<li>
+<p>锐化计算后得到梯度值G[f(x,y)]</p>
+</li>
+<li>
+<p>可设定阈值 T</p>
+<ul>
+<li>
+<p>g(x,y)=G[f(x,y)],G[f(x,y)]&gt;=T</p>
+</li>
+<li>
+<p>g(x,y)=f(x,y) ,G[f(x,y)]&lt;T</p>
+</li>
+</ul>
+</li>
+<li>
+<p>频域增强</p>
+<ul>
+<li>
+<p>步骤</p>
+<ul>
+<li>
+<p>原图 f(x,y) 傅立叶变换 F(u,v)</p>
+</li>
+<li>
+<p>F(u,v)*H(u,v) 传递函数 -&gt; G(u,v)</p>
+</li>
+<li>
+<p>G(u,v) 傅立叶逆变换 g(x,y)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>空间域-&gt;变换域</p>
+<ul>
+<li>
+<p>低频分量 图像灰度值变化缓慢</p>
+</li>
+<li>
+<p>高频           边缘 随机噪声</p>
+</li>
+</ul>
+</li>
+<li>
+<p>低通滤波</p>
+<ul>
+<li>
+<p>保留低频 过滤高频</p>
+</li>
+<li>
+<p>种类</p>
+<ul>
+<li>
+<p>理想低通滤波ILPF</p>
+</li>
+<li>
+<p>巴特沃斯</p>
+</li>
+<li>
+<p>指数</p>
+</li>
+<li>
+<p>梯形</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>高通滤波</p>
+<ul>
+<li>
+<p>理想</p>
+<ul>
+<li>振铃明显 图像边缘模糊</li>
+</ul>
+</li>
+<li>
+<p>巴特沃斯</p>
+<ul>
+<li>效果好 振铃不明显 计算复杂</li>
+</ul>
+</li>
+<li>
+<p>指数</p>
+<ul>
+<li>稍逊于巴特沃斯</li>
+</ul>
+</li>
+<li>
+<p>梯形</p>
+<ul>
+<li>微有振铃 计算简单 常用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>带阻滤波</p>
+<ul>
+<li>允许 阻止 特定频段通过 传递函数</li>
+</ul>
+</li>
+<li>
+<p>同态滤波</p>
+<ul>
+<li>
+<p>压缩图像范围 增强对比度</p>
+</li>
+<li>
+<p>分离 照明分量 反射分量</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="彩色图像增强">彩色图像增强</h3>
+<ul>
+<li>
+<p>增强技术</p>
+<ul>
+<li>
+<p>真彩色</p>
+</li>
+<li>
+<p>假彩色</p>
+</li>
+<li>
+<p>伪彩色</p>
+</li>
+</ul>
+</li>
+<li>
+<p>彩色模型 <a href="https://share.mubu.com/doc/7p7gHyyHh1q">数字媒体技术期末复习总结</a></p>
+<ul>
+<li>
+<p>rgb</p>
+</li>
+<li>
+<p>hsi</p>
+</li>
+<li>
+<p>cmy</p>
+</li>
+</ul>
+</li>
+<li>
+<p>伪彩色增强</p>
+<ul>
+<li>灰度-&gt;彩色</li>
+</ul>
+</li>
+<li>
+<p>假彩色增强</p>
+<ul>
+<li>
+<p>彩色-&gt;彩色</p>
+</li>
+<li>
+<p>rgb 映射 rgb</p>
+</li>
+</ul>
+</li>
+<li>
+<p>真彩色增强</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/6EB50F4A7B5744E31621695345.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h2 id="7-二值图像-形态学">7  二值图像 形态学</h2>
+<h3 id="二值图">二值图</h3>
+<h4 id="阈值选择">阈值选择</h4>
+<ul>
+<li>
+<p>直方图</p>
+<ul>
+<li>
+<p>对象图形与背景灰度值差很大 ，直方图形成谷</p>
+</li>
+<li>
+<p>干扰多图像不适应</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="像素连接">像素连接</h4>
+<ul>
+<li>
+<p>连接成分</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/0200DD01F03843CC1621868593.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>孔</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/0B3F1094572644A11621868685.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>单连接成分、多重连接成分</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/5FEB2C79700D40F41621869091.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>图像连接数例题</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/304FD6BBC47947051621868374.jpg" alt="img" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>可删除性</p>
+<ul>
+<li>
+<p>改变一个像素值，整个图像连通性不变</p>
+</li>
+<li>
+<p>可删除像素和连接数等于1的像素一致</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="形态学">形态学</h3>
+<h4 id="基本思想">基本思想</h4>
+<ul>
+<li>
+<p>一定 形态结构元素 度量提取 图像 以便 图像分析</p>
+</li>
+<li>
+<p>集合论</p>
+</li>
+<li>
+<p>保持图像基本结构 除去不想干结构</p>
+</li>
+</ul>
+<h4 id="腐蚀">腐蚀</h4>
+<ul>
+<li>
+<p>步骤</p>
+<ul>
+<li>
+<p>结构元素与覆盖图像</p>
+</li>
+<li>
+<p>如果结果均为1，则为1，否则为0</p>
+</li>
+</ul>
+</li>
+<li>
+<p>消除边界点/小点</p>
+</li>
+</ul>
+<h4 id="膨胀">膨胀</h4>
+<ul>
+<li>
+<p>步骤</p>
+<ul>
+<li>
+<p>结构元素与覆盖图像</p>
+</li>
+<li>
+<p>如果结果均为0，则为0，否则为1</p>
+</li>
+</ul>
+</li>
+<li>
+<p>填补空洞</p>
+</li>
+</ul>
+<h4 id="开">开</h4>
+<ul>
+<li>
+<p>腐蚀 膨胀</p>
+</li>
+<li>
+<p>消除小物体</p>
+</li>
+<li>
+<p>平滑对象轮廓</p>
+</li>
+</ul>
+<h4 id="闭">闭</h4>
+<ul>
+<li>
+<p>膨胀 腐蚀</p>
+</li>
+<li>
+<p>填补空洞</p>
+</li>
+<li>
+<p>平滑边界</p>
+</li>
+</ul>
+<h4 id="例题-2">例题</h4>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/718EE5018AC145221621870163.jpg" alt="img" loading="lazy"></li>
+</ul>
+<h2 id="8-图像压缩">8 图像压缩</h2>
+<p>例题</p>
+<ul>
+<li>图<img src="https://api2.mubu.com/v3/document_image/427ADBB8EA5246321621871644.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/F9F1743BA679471C1621871644.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/42A5D83A2FC1418A1621871644.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/75B23AEBD1BA440B1621871644.jpg" alt="img" loading="lazy"><img src="https://api2.mubu.com/v3/document_image/B7216034778949511621871644.jpg" alt="img" loading="lazy"></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[THREE.JS shader 实现Phong光照模型]]></title>
         <id>https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/</id>
