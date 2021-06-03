@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://logic-three-body.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-06-03T04:42:27.711Z</updated>
+    <updated>2021-06-03T04:46:01.441Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://logic-three-body.github.io/"/>
     <link rel="self" href="https://logic-three-body.github.io/atom.xml"/>
@@ -59,7 +59,8 @@ HDRP 中提供了一个反射层级来为屏幕上的每个像素提供尽量正
 <p>初学者学习内存我推荐一个超级棒的教程：<a href="https://www.bilibili.com/video/BV1Rb411378V?p=12">CS50</a></p>
 <h2 id="后记">后记</h2>
 <p>这次活动大开眼界，除了技术干货还有见证了unity背后强大的生态链和业务链，对于引擎背后工具链的熟悉对于开发者也十分重要。</p>
-<p>千里之行，始于足下，各位加油！</p>
+<p>千里之行，始于足下，各位加油！<br>
+<img src="https://i.loli.net/2021/06/03/aj6lZKB92rR7Mhd.jpg" alt="" loading="lazy"></p>
 ]]></content>
     </entry>
     <entry>
