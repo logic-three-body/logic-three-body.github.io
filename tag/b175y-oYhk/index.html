@@ -3,7 +3,7 @@
   <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>会议 | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1622693799402">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1622694540684">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="会议 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
@@ -18,7 +18,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1622693799402" alt="">
+  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1622694540684" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -111,52 +111,7 @@
         </a>
       
       <div class="post-abstract">
-        <h1 id="unity技术开放日-北京站">Unity技术开放日 北京站</h1>
-<h2 id="前言">前言</h2>
-<p>unity官方来北京啦，我也是第一次参加这种官方活动，还比较紧张，但是现场气氛相当活泼，讲师大佬们都非常有趣，非常硬核，感觉和看线上直播还是有很大区别，原来官方的讲师大佬如此亲切，就像朋友聊天一样，感觉非常好！这篇博客先来说几个我印象深刻的吧（随着我的学习，也会对这篇博客的内容更新~）</p>
-<p><strong>注：本文图片内容主要来源：</strong><a href="https://unity.cn/ask/question/604884f5edbc2a001f945623">官方ppt</a></p>
-<h2 id="hdrp打光实践">HDRP打光实践</h2>
-<p>我的第一个unity游戏是和小伙伴利用unity3d默认渲染管线制作的，后来也尝试着把场景导入过urp管线，也在urp管线里制作过VR场景，urp和默认渲染管线里的灯光参数比较简洁，但到了hdrp高清渲染关系里就有非常多和物理相关的参数了,所以就要考虑能量、色温等因素。</p>
-<p><strong>HDRP中文版文档</strong>：<a href="https://docs.unity3d.com/cn/Packages/com.unity.render-pipelines.high-definition@10.4/manual/index.html">here</a></p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/06/03/7NpCJqxzR6skyUh.png" alt="image-20210603105739224" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/06/03/GhTzmLiR6dyQow2.png" alt="image-20210603105819020" loading="lazy"></figure>
-<p>例如：正午的阳光为11到12万Lux</p>
-<p>HDRP反射层级：<br>
-HDRP 中提供了一个反射层级来为屏幕上的每个像素提供尽量正确的反射信息。在这个反射层级中包含了三种生成反射的方法，HDRP 进行评估的先后次序为：<br>
-1.首先评估 <a href="https://www.bilibili.com/video/BV1YK4y1T7yY?p=9"><strong>Screen Space Reflection</strong></a> （屏幕空间反射，简称 SSR）。<br>
-2.如果没有找到合适的反射信息， HDRP 会接着评估 Reflection Probe （反射探针） 。<br>
-3.如果还是没有得到合适的反射信息，最后会使用来自天空的反射（ Sky reflection ）。</p>
-<p>学习hdrp灯光可以从如下框架入手</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/06/03/ZQBdCPi5LnEwaXm.png" alt="image-20210603110042629" loading="lazy"></figure>
-<p>物理打光和艺术打光配合：</p>
-<p>hdrp教程：<a href="https://www.bilibili.com/video/av672487642">实时光追系列</a> <a href="https://www.bilibili.com/video/BV1gE411T7As?p=28">同济动画Unity美术与技术原理</a></p>
-<p>screen space reflect原理: <a href="https://www.bilibili.com/video/BV1YK4y1T7yY?p=9">games202Lec09</a></p>
-<p>艺术教程：<a href="https://www.bilibili.com/video/av18001896">贵哥汉化色彩与光线</a> <a href="https://www.bilibili.com/video/av35977423">光影色彩理论</a></p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2021/06/03/Fse7WOkf2lU1oB5.png" alt="image-20210603111704467" loading="lazy"></figure>
-<h2 id="低成本水体渲染黎明之海">低成本水体渲染&amp;黎明之海</h2>
-<p>低成本水体渲染和的黎明之海的技术分享对我很重要，因为最近想和小伙伴们制作有关海洋环保的主题游戏，所以海面以及海底的渲染是我迫切要学习的。</p>
-<p>以前对水体渲染有误区，认为水面和水底是一体的，但其实这是两个完全不同的渲染方式，水面渲染相对难度大，包括利用波函数模拟水体流动，从水上看向水底的折射、反色、焦散等效果，水底一般通过后处理模拟水下模糊场景。</p>
-<p>水体模拟解决方案框架：</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/06/03/Euo9I3UJSBDYVMO.png" alt="image-20210603113246492" loading="lazy"></figure>
-<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/06/03/waY7Sz6mh5nQAcD.png" alt="image-20210603113335476" loading="lazy"></figure>
-<p>实时渲染里的水体模拟一般采用波函数模拟动态效果而不采用物理模拟使用的欧拉法或拉格朗日法（因为实在太慢了，伤不起，离线渲染的水和雪的模拟还是让冰雪奇缘类型的电影去用吧）</p>
-<p>黎明之海 海洋交互系统：</p>
-<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2021/06/03/lcyozZEIMXBJaYv.png" alt="image-20210603114718267" loading="lazy"></figure>
-<p>参考：</p>
-<p><a href="http://advances.realtimerendering.com/s2019/index.htm">Multi-resolution Ocean Rendering in Crest Ocean System</a></p>
-<p><a href="http://advances.realtimerendering.com/s2017/index.html">Crest: Novel Ocean Rendering Techniques in an Open Source Framework</a></p>
-<p>对水体模拟的学习，我推荐结合本次技术分享ppt从<a href="https://zhuanlan.zhihu.com/p/95917609">毛星云大佬的文章</a>开始，有一个全局认识，也可以看放牛的星星大佬总结翻译的<a href="https://zhuanlan.zhihu.com/p/196758925">catlikecoding流体模拟系列</a></p>
-<h2 id="unity-底层模型之内存">Unity 底层模型之内存</h2>
-<p>设计到内存模型的理论确实非常烧脑，不过内存对于正在运行的程序来说非常重要，对内存的优化也是非常复杂的工作</p>
-<p>内存是抽象神奇的东西，从物理角度上讲它是一段连续的空间，也就是说在分配内存的时候只看剩余内存大小来分配往往不会获得满意的结果，如果很多小内存片散落在这片内存区域上，即使内存在数值上有很大的剩余也无法再分配一块大的连续内存块了。</p>
-<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2021/06/03/rV9fkWlgiYopJND.jpg" alt="" loading="lazy"></figure>
-<p>所以一般推荐我们先分配大内存，再分配小内存，避免内存碎片的产生</p>
-<p>初学者学习内存我推荐一个超级棒的教程：<a href="https://www.bilibili.com/video/BV1Rb411378V?p=12">CS50</a></p>
-<h2 id="后记">后记</h2>
-<p>这次活动大开眼界，除了技术干货还有见证了unity背后强大的生态链和业务链，对于引擎背后工具链的熟悉对于开发者也十分重要。</p>
-<p>千里之行，始于足下，各位加油！<br>
-<img src="https://logic-three-body.github.io//post-images/1622693735333.jpg" alt="" loading="lazy"></p>
-
+        
       </div>
     </article>
   
