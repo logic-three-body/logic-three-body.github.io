@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>WebGL three.js-example 研究 -&gt; misc_controls_pointerlock 漫游案例 | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1622697694560">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1624001106812">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="WebGL three.js-example 研究 -&gt; misc_controls_pointerlock 漫游案例 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
@@ -11,13 +11,10 @@
 
 
 
-    <meta name="description" content="TODO ...
-原版GIF
-代码分析
-代码改进
-改进后GIF
-
-..." />
+    <meta name="description" content="背景
+本文将分析three.js源码案例中的misc_controls_pointerlock，同时我的改进版在这里。
+这个案例是玩家漫游场景，可以WASD（包括方向）移动和跳跃到方块，鼠标控制视角。
+玩法很简单：初次进入游戏后点击继续（游..." />
     <meta name="keywords" content="WebGL,Three.js,计算机图形学,游戏,实时渲染" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -27,7 +24,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1622697694560" alt="">
+  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1624001106812" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -93,7 +90,7 @@
                 2021-05-09
               </span>
               <span>
-                1 min read
+                18 min read
               </span>
               
                 <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="post-tag">
@@ -118,18 +115,681 @@
               
             </div>
             
+              <img class="post-feature-image" src="https://logic-three-body.github.io//post-images/webgl-threejs-example-yan-jiu-misc_controls_pointerlock.gif" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>TODO ...<br>
-原版GIF<br>
-代码分析<br>
-代码改进<br>
-改进后GIF<br>
-<img src="https://logic-three-body.github.io//post-images/1620725182616.gif" alt="" loading="lazy"></p>
+                <h2 id="背景">背景</h2>
+<p>本文将分析three.js源码案例中的<a href="http://www.yanhuangxueyuan.com/threejs/examples/?q=misc#misc_controls_pointerlock">misc_controls_pointerlock</a>，同时我的改进版在<a href="https://github.com/logic-three-body/ThreeJSLearn/tree/master/%E5%AE%9E%E9%AA%8C%E5%85%AD2">这里</a>。</p>
+<p>这个案例是玩家漫游场景，可以WASD（包括方向）移动和跳跃到方块，鼠标控制视角。</p>
+<p>玩法很简单：初次进入游戏后点击继续（游戏提示已经写在屏幕上了），玩家四处移动，遇到方块可以跳到方块上（此处判断较为简单，没有碰撞检测，所以方块可以穿过）</p>
+<figure data-type="image" tabindex="1"><img src="https://github.com/logic-three-body/ThreeJSLearn/blob/master/%E5%AE%9E%E9%AA%8C%E5%85%AD2/img/orgin/start.gif?raw=true" alt="start.gif" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://github.com/logic-three-body/ThreeJSLearn/blob/master/%E5%AE%9E%E9%AA%8C%E5%85%AD2/img/orgin/jump_high.gif?raw=true" alt="" loading="lazy"></figure>
+<h2 id="原版代码分析">原版代码分析</h2>
+<p>原版版本：<a href="https://github.com/logic-three-body/ThreeJSLearn/tree/e73819838593ca59c2dcf1eefc7cd2e2bf67aaf1/%E5%AE%9E%E9%AA%8C%E5%85%AD2">here</a></p>
+<p><strong>您需要的配置：vscode+live server</strong></p>
+<h3 id="html部分">HTML部分</h3>
+<p>在引入的script中，three.js是图形库，PointerLockControls.js是鼠标控件，我将场景的实现拆分在了三个js文件里（loading my scene下面的三个）</p>
+<p>main.js-&gt; 所需的全局变量（如相机，场景，射线 raycaster【用于判断和物体的接触】）以及函数对象的使用</p>
+<p>scene.js -&gt; 包含场景里的几何体，光照，相机以及键盘事件</p>
+<p>render.js -&gt; 负责渲染的控件 ， 窗口自适应变换 ，实时渲染（内部的动画逻辑）</p>
+<p>body部分设置了一个指示牌（当玩家按ESC暂停时可以看到）</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+	&lt;title&gt;跳跳跳&lt;/title&gt;
+	&lt;meta charset=&quot;utf-8&quot;&gt;
+	&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;&gt;
+	&lt;link rel=&quot;stylesheet&quot; href=&quot;CSS/style.css&quot;&gt;
+
+	&lt;script src=&quot;JS/build/three.js&quot; defer&gt;&lt;/script&gt;
+	&lt;script src=&quot;JS/controls/PointerLockControls.js&quot; defer&gt;&lt;/script&gt;
+
+	&lt;!-- loading my scene --&gt;
+	&lt;script src=&quot;JS/scene/scene.js&quot; defer&gt;&lt;/script&gt;
+	&lt;script src=&quot;JS/scene/render.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;JS/scene/main.js&quot; defer&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+
+	&lt;div id=&quot;blocker&quot;&gt;
+
+		&lt;div id=&quot;instructions&quot;&gt;
+			&lt;span style=&quot;font-size:40px&quot;&gt;点击继续&lt;/span&gt;
+			&lt;br /&gt;
+			(W, A, S, D | ← ↑ → ↓ =&gt; 移动, 空格 =&gt; 跳， 鼠标左(右)键 =&gt; 移动视角 | ESC=&gt;暂停)
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h3 id="js部分">JS部分</h3>
+<p><strong>请结合代码和注释阅读</strong></p>
+<p>辅助控件：<a href="http://www.yanhuangxueyuan.com/threejs/docs/index.html#api/zh/core/Raycaster">raycaster</a>  <a href="http://www.yanhuangxueyuan.com/threejs/docs/index.html#api/zh/lights/HemisphereLight">hemispherelight半球灯</a> <a href="http://www.yanhuangxueyuan.com/threejs/docs/#api/zh/helpers/HemisphereLightHelper">hemispherelighthelper</a></p>
+<h4 id="scenejs">scene.js</h4>
+<pre><code class="language-javascript">function init() {
+
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xffff);
+    scene.fog = new THREE.Fog(0xffff, 0, 750); //雾效
+
+    var light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75); //光源直接放置于场景之上，光照颜色从天空光线颜色颜色渐变到地面光线颜色。
+    light.position.set(0.5, 1, 0.75);
+    scene.add(light);
+
+    controls = new THREE.PointerLockControls(camera); //加入鼠标控件，此时鼠标即为摄像机视角
+    scene.add(controls.getObject());
+
+    //坐标辅助控件
+    var axisHelper = new THREE.AxesHelper(25000); //红色代表 X 轴. 绿色代表 Y 轴. 蓝色代表 Z 轴
+    //scene.add(axisHelper);
+    //半球灯辅助控件
+
+
+    var onKeyDown = function (event) { //控制场景移动 键盘按下事件
+
+        switch (event.keyCode) {
+
+            case 38: // up
+            case 87: // w
+                moveForward = true;
+                break;
+
+            case 37: // left
+            case 65: // a
+                moveLeft = true;
+                break;
+
+            case 40: // down
+            case 83: // s
+                moveBackward = true;
+                break;
+
+            case 39: // right
+            case 68: // d
+                moveRight = true;
+                break;
+
+            case 32: // space
+                if (canJump === true) velocity.y += 350;
+                canJump = false;
+                break;
+
+        }
+
+    };
+
+    var onKeyUp = function (event) { //键盘抬起事件
+
+        switch (event.keyCode) {
+
+            case 38: // up
+            case 87: // w
+                moveForward = false;
+                break;
+
+            case 37: // left
+            case 65: // a
+                moveLeft = false;
+                break;
+
+            case 40: // down
+            case 83: // s
+                moveBackward = false;
+                break;
+
+            case 39: // right
+            case 68: // d
+                moveRight = false;
+                break;
+
+        }
+
+    };
+
+    document.addEventListener('keydown', onKeyDown, false);
+    document.addEventListener('keyup', onKeyUp, false);
+
+    raycaster = new THREE.Raycaster(new THREE.Vector3(), new THREE.Vector3(0, -1, 0), 0, 10); //raycaster用于判断和物体的接触【类比Unity】
+    /*
+      origin —— 光线投射的原点向量。
+      direction —— 向射线提供方向的方向向量，应当被标准化。
+      near —— 返回的所有结果比near远。near不能为负值，其默认值为0。
+      far —— 返回的所有结果都比far近。far不能小于near，其默认值为Infinity（正无穷。）  
+    */
+
+    //以下为场景搭建 场景位置以及物体颜色随机生成
+
+    /*
+    注意：如果我把原代码里的random相关公式都存在变量里然后赋值，由于random是使用
+    一次返回一次随机数，所以变量也要不停获取随机数
+    */
+
+    // floor
+    var formula1, formula2, fixed = 0.75;
+    var floorGeometry = new THREE.PlaneGeometry(2000, 2000, 100, 100);
+    floorGeometry.rotateX(-Math.PI / 2);
+
+    for (var i = 0, l = floorGeometry.vertices.length; i &lt; l; i++) {
+
+        var vertex = floorGeometry.vertices[i];
+        var formulavx = Math.random() * 20 - 10;
+        var formulavy = Math.random() * 2;
+        var formulavz = Math.random() * 20 - 10;
+        vertex.x += formulavx;
+        vertex.y += formulavy;
+        vertex.z += formulavz;
+
+    }
+
+    for (var i = 0, l = floorGeometry.faces.length; i &lt; l; i++) {
+
+        var face = floorGeometry.faces[i];
+        formula1 = Math.random() * 0.3 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        face.vertexColors[0] = new THREE.Color().setHSL(formula1, fixed, formula2);
+        formula1 = Math.random() * 0.3 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        face.vertexColors[1] = new THREE.Color().setHSL(formula1, fixed, formula2);
+        formula1 = Math.random() * 0.3 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        face.vertexColors[2] = new THREE.Color().setHSL(formula1, fixed, formula2);
+
+    }
+
+    var floorMaterial = new THREE.MeshBasicMaterial({
+        vertexColors: THREE.VertexColors
+    });
+
+    var floor = new THREE.Mesh(floorGeometry, floorMaterial);
+    scene.add(floor);
+
+    // objects
+    var size = 20;
+    var boxGeometry = new THREE.BoxGeometry(size, size, size);
+
+    for (var i = 0, l = boxGeometry.faces.length; i &lt; l; i++) { //设置方块颜色
+
+        var face = boxGeometry.faces[i];
+        formula1 = Math.random() * 0.3 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        face.vertexColors[0] = new THREE.Color().setHSL(formula1, fixed, formula2);
+        formula1 = Math.random() * 0.3 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        face.vertexColors[1] = new THREE.Color().setHSL(formula1, fixed, formula2);
+        formula1 = Math.random() * 0.3 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        face.vertexColors[2] = new THREE.Color().setHSL(formula1, fixed, formula2);
+
+    }
+
+    for (var i = 0; i &lt; 500; i++) { //随机分布方块
+
+        var boxMaterial = new THREE.MeshPhongMaterial({
+            specular: 0xffffff,
+            flatShading: true,
+            vertexColors: THREE.VertexColors,
+        });
+        formula1 = Math.random() * 0.2 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        boxMaterial.color.setHSL(formula1, fixed, formula2);
+
+        var box = new THREE.Mesh(boxGeometry, boxMaterial);
+        var formulapx = Math.floor(Math.random() * 20 - 10) * 20;
+        var formulapy = Math.floor( Math.random() * 20 ) * 20 + 10;
+        var formulapz = Math.floor( Math.random() * 20 - 10 ) * 20;
+        box.position.x = formulapx;
+        box.position.y = formulapy;
+        box.position.z = formulapz;
+        //尝试让box.position.x=box.position.y=formulapx查看不同效果
+
+        scene.add(box);
+        objects.push(box);
+
+    }
+
+    //rendering
+
+    renderer = new THREE.WebGLRenderer();
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    //auto resizing render
+
+    window.addEventListener('resize', onWindowResize, false);
+
+}
+</code></pre>
+<h4 id="renderjs">render.js</h4>
+<pre><code class="language-javascript">function onWindowResize() {//自适应窗口渲染
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+}
+
+function animate() {
+
+    requestAnimationFrame(animate);//每帧执行此函数
+
+    if (controlsEnabled === true) {
+
+        //当raycaster 射线 触碰到物体 ...
+        raycaster.ray.origin.copy(controls.getObject().position);//初始化射线位置为玩家位置 copy复制属性
+        raycaster.ray.origin.y -= 10;//如果玩家没有跳跃，则相当于射线原点现在地面（x,0,z）
+
+        var intersections = raycaster.intersectObjects(objects);//与物体相交
+
+        var onObject = intersections.length &gt; 0;
+
+        var time = performance.now();
+        var delta = (time - prevTime) / 1000;//时间步长
+
+        velocity.x -= velocity.x * 10.0 * delta;
+        velocity.z -= velocity.z * 10.0 * delta;
+        //y轴（向上）模拟重力
+        velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
+
+        direction.z = Number(moveForward) - Number(moveBackward);
+        direction.x = Number(moveLeft) - Number(moveRight);
+        direction.normalize(); // this ensures consistent movements in all directions
+
+        if (moveForward || moveBackward) velocity.z -= direction.z * 400.0 * delta;
+        if (moveLeft || moveRight) velocity.x -= direction.x * 400.0 * delta;
+
+        if (onObject === true) {//当与物体交互可以跳跃
+
+            velocity.y = Math.max(0, velocity.y);
+            canJump = true;
+
+        }
+
+        //保证控件和玩家一起移动
+        controls.getObject().translateX(velocity.x * delta);
+        controls.getObject().translateY(velocity.y * delta);
+        controls.getObject().translateZ(velocity.z * delta);
+
+        if (controls.getObject().position.y &lt; 10) {
+
+            velocity.y = 0;
+            controls.getObject().position.y = 10;
+
+            canJump = true;
+
+        }
+
+        prevTime = time;
+
+    }
+
+    renderer.render(scene, camera);
+
+}
+</code></pre>
+<h4 id="mainjs">main.js</h4>
+<pre><code class="language-javascript">var camera, scene, renderer, controls;
+
+var objects = [];
+
+var raycaster;
+
+var blocker = document.getElementById('blocker');
+var instructions = document.getElementById('instructions');
+
+// http://www.html5rocks.com/en/tutorials/pointerlock/intro/
+
+var havePointerLock = 'pointerLockElement' in document || 'mozPointerLockElement' in document ||
+    'webkitPointerLockElement' in document;
+
+if (havePointerLock) {
+
+    var element = document.body;
+
+    var pointerlockchange = function (event) {
+
+        if (document.pointerLockElement === element || document.mozPointerLockElement === element || document
+            .webkitPointerLockElement === element) {//游戏正常进行
+
+            controlsEnabled = true;
+            controls.enabled = true;
+
+            blocker.style.display = 'none';
+
+        } else {//按ESC触发
+
+            controls.enabled = false;
+
+            blocker.style.display = 'block';//触发html中的blocker下的暂停指示
+
+            instructions.style.display = '';
+
+        }
+
+    };
+
+    var pointerlockerror = function (event) {
+
+        instructions.style.display = '';
+
+    };
+
+    // Hook pointer lock state change events
+    document.addEventListener('pointerlockchange', pointerlockchange, false);
+    document.addEventListener('mozpointerlockchange', pointerlockchange, false);
+    document.addEventListener('webkitpointerlockchange', pointerlockchange, false);
+
+    document.addEventListener('pointerlockerror', pointerlockerror, false);
+    document.addEventListener('mozpointerlockerror', pointerlockerror, false);
+    document.addEventListener('webkitpointerlockerror', pointerlockerror, false);
+
+    instructions.addEventListener('click', function (event) {
+
+        instructions.style.display = 'none';
+
+        // Ask the browser to lock the pointer
+        element.requestPointerLock = element.requestPointerLock || element.mozRequestPointerLock || element
+            .webkitRequestPointerLock;
+        element.requestPointerLock();
+
+    }, false);
+
+} else {
+
+    instructions.innerHTML = 'Your browser doesn\'t seem to support Pointer Lock API';
+
+}
+
+init();//创建场景
+animate();
+
+var controlsEnabled = false;
+
+var moveForward = false;//移动判断
+var moveBackward = false;
+var moveLeft = false;
+var moveRight = false;
+var canJump = false;
+
+var prevTime = performance.now();
+var velocity = new THREE.Vector3();//用于移动的速度
+var direction = new THREE.Vector3();
+
+
+
+
+</code></pre>
+<h2 id="小游戏海底大冒险">小游戏：海底大冒险</h2>
+<h3 id="前言">前言</h3>
+<p>我们可以利用这个漫游框架做些什么小游戏呢，这个漫游框架里有很多值得考究和学习的地方，至于我为什么取了一个海底大冒险的名字，让我们看看我修改添加了哪些代码吧。</p>
+<p><strong>体验工程地址</strong>：<a href="https://github.com/logic-three-body/ThreeJSLearn/tree/master/%E5%AE%9E%E9%AA%8C%E5%85%AD2">here</a></p>
+<h3 id="游戏截图">游戏截图</h3>
+<figure data-type="image" tabindex="3"><img src="https://github.com/logic-three-body/ThreeJSLearn/blob/master/%E5%AE%9E%E9%AA%8C%E5%85%AD2/img/after/%E6%B5%B7%E9%BE%9F%E6%BC%AB%E6%B8%B8.gif?raw=true" alt="海龟漫游.gif" loading="lazy"></figure>
+<h3 id="代码分析">代码分析</h3>
+<h4 id="加载大海龟模型">加载大海龟模型</h4>
+<p>加载的海龟是<a href="https://sea3d.en.softonic.com/">sea3d</a>格式，具体说明请查看<a href="http://www.yanhuangxueyuan.com/threejs/examples/?q=sea3d#webgl_loader_sea3d">here</a></p>
+<pre><code class="language-javascript">    //加载大海龟
+    var robot_loader = new THREE.SEA3D({
+
+        autoPlay: true, // Auto play animations
+        container: scene // Container to add models
+
+    });
+    // Open3DGC - Export by SEA3D Studio
+    robot_loader.load('models/mascot.tjs.sea');
+
+
+    //load render and animation
+    robot_loader.onComplete = function (e) {
+        animate();
+    };
+</code></pre>
+<p>在render.js模块的animate加入模型动画加载</p>
+<pre><code class="language-javascript">    // Update SEA3D Animations
+    THREE.SEA3D.AnimationHandler.update(delta);
+</code></pre>
+<h4 id="海底气氛营造">海底气氛营造</h4>
+<p>由于加载的模型文件格式是整个场景（即内部已配置灯光），为简化逻辑【如果想更加精细地定制场景，three.js可以通过一些接口修改sea3d文件内部灯光、模型等】以及让场景不过亮，我将原来框架的半球灯关掉，然后修改背景和雾效颜色,</p>
+<p>营造海底模糊的气氛，同时我把plane海底地面加载了沙地贴图。</p>
+<pre><code class="language-javascript">    scene.background = new THREE.Color(0xffff);
+    scene.fog = new THREE.Fog(0xffff, 0, 850); //雾效
+
+    var light = new THREE.HemisphereLight(0xeeeeff, 0x777788, 0.75); //光源直接放置于场景之上，光照颜色从天空光线颜色颜色渐变到地面光线颜色。
+    light.position.set(0.5, 1, 0.75);
+    //scene.add(light);
+</code></pre>
+<pre><code class="language-javascript">    var textureLoader = new THREE.TextureLoader();
+    var str1 = 'https://img2.baidu.com/it/u=2116410189,1585260632&amp;fm=26&amp;fmt=auto&amp;gp=0.jpg';
+    var str2 = './img/pixel/sand.jpg';
+    var sandtex = textureLoader.load(str2);
+    var floorMaterial2 = new THREE.MeshLambertMaterial({
+        //vertexColors: THREE.VertexColors,
+       // color: 0xff,
+        map: sandtex,
+    });
+    var floor = new THREE.Mesh(floorGeometry, floorMaterial2);
+    scene.add(floor);
+</code></pre>
+<h5 id="注意事项">！！！注意事项！！！</h5>
+<p>由于我的Javascript部分都是在JS文件里写的，所以在加载图片和音频url，我遇到了问题</p>
+<p>如果您观察我工程的文件目录，贴图和音频的本地地址在js文件里应该是【如下】</p>
+<pre><code class="language-javascript">  var str2 = '../../img/pixel/sand.jpg';
+</code></pre>
+<p>浏览器此时会提示</p>
+<figure data-type="image" tabindex="4"><img src="C:%5CUsers%5Clenovo%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210521095426812.png" alt="image-20210521095426812" loading="lazy"></figure>
+<p>即找不到文件位置，后来我明白了其实文件的路径应该是以html文件为准，因为script文件要引入html，其实都相当于把所有script拼成大script放进html</p>
+<p>所以正确的加载格式：</p>
+<pre><code class="language-javascript">    var str2 = './img/pixel/sand.jpg';
+</code></pre>
+<p>或（ **./ ** 表示当前目录）</p>
+<pre><code class="language-javascript">    var str2 = 'img/pixel/sand.jpg';
+</code></pre>
+<p>当然我的环境是vscode+livesever模拟了服务器环境，直接打开html文件，浏览器会因为安全原因阻止你的任何图片、音频等</p>
+<h4 id="方块的分布">方块的分布</h4>
+<p>玩家一出生是在海龟体内的，游戏的逻辑是玩家仅可以跳跃到方块，没有复杂的碰撞检测【玩家可以穿过模型、方块和一切】,所以我尽量让方块分布在大海龟周围，这样玩家可以跳到方块上从不同角度观察大海龟。</p>
+<pre><code class="language-javascript">    var num = 800;//方块数量
+    for (var i = 0; i &lt; num; i++) { //随机分布方块
+
+        var boxMaterial = new THREE.MeshBasicMaterial({
+            vertexColors: THREE.VertexColors,
+        });
+        formula1 = Math.random() * 0.2 + 0.5;
+        formula2 = Math.random() * 0.25 + 0.75;
+        boxMaterial.color.setHSL(formula1, fixed, formula2);
+        var coef1=60, coef2=10;//这两个系数控制方块距离海龟的远近
+        var box = new THREE.Mesh(boxGeometry, boxMaterial);
+        var formulapx = Math.floor(Math.random() * coef1 - coef2) * coef1;
+        var formulapy = Math.floor(Math.random() * coef1) * coef1 + coef1;
+        var formulapz = Math.floor(Math.random() * coef1 - coef2) * coef1;
+        box.position.x = formulapx;
+        box.position.y = formulapy;
+        box.position.z = formulapz;
+        //尝试让box.position.x=box.position.y=formulapx查看不同效果
+        scene.add(box);
+        objects.push(box);
+    }
+</code></pre>
+<h4 id="游戏中的物理">游戏中的物理</h4>
+<p>velocity和玩家位移有关，speed用于控制玩家移动的快慢， 在原框架中，y向【竖直向】模拟重力加速度-9.8，我希望在水中y向加速度小些营造飘荡的感觉，所以这个物理量除3。</p>
+<pre><code class="language-javascript">    if (controlsEnabled === true) {
+
+        //当raycaster 射线 触碰到物体 ...
+        raycaster.ray.origin.copy(controls.getObject().position);//初始化射线位置为玩家位置 copy复制属性
+        raycaster.ray.origin.y -= 10;//如果玩家没有跳跃，则相当于射线原点现在地面（x,0,z）
+
+        var intersections = raycaster.intersectObjects(objects);//与物体相交
+
+        var onObject = intersections.length &gt; 0;
+
+        var time = performance.now();
+        var delta = (time - prevTime) / 1000;//时间步长
+        var speed = 10;//控制移动速度
+        velocity.x -= velocity.x * speed * delta;
+        velocity.z -= velocity.z * speed * delta;
+        //y轴（向上）模拟重力
+        velocity.y -= 9.8/3 * 100.0 * delta; // 100.0 = mass 降低重力加速度营造海底移动感觉
+
+        direction.z = Number(moveForward) - Number(moveBackward);
+        direction.x = Number(moveLeft) - Number(moveRight);
+        direction.normalize(); // this ensures consistent movements in all directions
+
+        if (moveForward || moveBackward) velocity.z -= direction.z * 400.0*speed * delta;
+        if (moveLeft || moveRight) velocity.x -= direction.x * 400.0*speed * delta;
+
+        if (onObject === true) {//当与物体交互可以跳跃
+
+            velocity.y = Math.max(0, velocity.y);
+            canJump = true;
+
+        }
+
+        //保证控件和玩家一起移动
+        controls.getObject().translateX(velocity.x * delta);
+        controls.getObject().translateY(velocity.y * delta);
+        controls.getObject().translateZ(velocity.z * delta);
+
+        if (controls.getObject().position.y &lt; 10) {
+
+            velocity.y = 0;
+            controls.getObject().position.y = 10;
+
+            canJump = true;
+
+        }
+
+        prevTime = time;
+
+    }
+</code></pre>
+<h4 id="音乐加载模块-musicjs">音乐加载模块 music.js</h4>
+<p>我在场景中某位置放置了一个音源，用户听到的音乐与和它的距离有关。</p>
+<pre><code class="language-javascript">// 用来定位音源的网格模型
+var audiobox = new THREE.BoxGeometry(10, 10, 10); //创建一个立方体几何对象Geometry
+var music_mat = new THREE.MeshBasicMaterial({
+    color: 0x0000ff
+  }); //材质对象Material
+var audioMesh = new THREE.Mesh(audiobox, music_mat);
+// 设置网格模型的位置，相当于设置音源的位置
+audioMesh.position.set(0, 0, 300);
+scene.add(audioMesh);
+// 创建一个虚拟的监听者
+var listener = new THREE.AudioListener();
+// 监听者绑定到相机对象
+camera.add(listener);
+// 创建一个位置音频对象,监听者作为参数,音频和监听者关联。
+var PosAudio = new THREE.PositionalAudio(listener);
+//音源绑定到一个网格模型上
+audioMesh.add(PosAudio);
+// 创建一个音频加载器
+var audioLoader = new THREE.AudioLoader();
+// 加载音频文件，返回一个音频缓冲区对象作为回调函数参数
+var str1 = 'SFX/sea.mp3';
+var str2 = 'https/www.ear0.com/sound/show/soundid-20708';
+//var str2 ='F:/百度网盘文件自动备份至天翼云/编程/WebGL/school/Three.js源码/实验六2/SFX/sea.mp3';
+audioLoader.load(str1, function(AudioBuffer) {
+  // console.log(buffer);
+  // 音频缓冲区对象关联到音频对象audio
+  PosAudio.setLoop(true); //是否循环
+  PosAudio.setBuffer(AudioBuffer);
+  PosAudio.setVolume(1); //音量
+  PosAudio.setRefDistance(200); //参数值越大,声音越大
+  PosAudio.play(); //播放
+});
+</code></pre>
+<h2 id="文末推荐">文末推荐</h2>
+<p><a href="https://mrdoob.com/#/126/or_so_they_say">PointerLockControls.js 作者的博客</a>  （大佬内部有好多好玩的three.js小游戏，包括水、火、粒子模拟、物理模拟）</p>
+<p>这里总结其精彩的案例，大家可以在浏览器里按F12,在开发者模式下阅读它的source code里的重要逻辑</p>
+<h3 id="pointerlockcontrolsjs-作者的博客">PointerLockControls.js 作者的博客</h3>
+<h4 id="水流模拟">水流模拟</h4>
+<p>https://mrdoob.com/#/115/water</p>
+<p>https://mrdoob.com/#/116/water_remix</p>
+<p>https://mrdoob.com/#/123/water_type</p>
+<h4 id="火焰模拟">火焰模拟</h4>
+<p>https://mrdoob.com/#/117/fire</p>
+<h4 id="粒子模拟">粒子模拟</h4>
+<p>https://mrdoob.com/#/110/branching</p>
+<p>https://mrdoob.com/#/111/branching</p>
+<p>https://mrdoob.com/#/112/branching</p>
+<p>https://mrdoob.com/#/144/magic_dust</p>
+<h4 id="小球物理模拟">小球物理模拟</h4>
+<p>https://mrdoob.com/#/91/ball_pool</p>
+<p>https://mrdoob.com/#/150/beach_balls</p>
+<h4 id="云雾模拟">云雾模拟</h4>
+<p>https://mrdoob.com/#/131/clouds</p>
+<h4 id="voxels_liquid">voxels_liquid</h4>
+<p>https://mrdoob.com/#/137/voxels_liquid</p>
+<h4 id="图形动画">图形动画</h4>
+<p>https://mrdoob.com/#/126/or_so_they_say</p>
+<p>https://mrdoob.com/#/152/obsidian</p>
+<p>https://mrdoob.com/#/153/sporel</p>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E8%83%8C%E6%99%AF">背景</a></li>
+<li><a href="#%E5%8E%9F%E7%89%88%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">原版代码分析</a>
+<ul>
+<li><a href="#html%E9%83%A8%E5%88%86">HTML部分</a></li>
+<li><a href="#js%E9%83%A8%E5%88%86">JS部分</a>
+<ul>
+<li><a href="#scenejs">scene.js</a></li>
+<li><a href="#renderjs">render.js</a></li>
+<li><a href="#mainjs">main.js</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%B0%8F%E6%B8%B8%E6%88%8F%E6%B5%B7%E5%BA%95%E5%A4%A7%E5%86%92%E9%99%A9">小游戏：海底大冒险</a>
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E6%B8%B8%E6%88%8F%E6%88%AA%E5%9B%BE">游戏截图</a></li>
+<li><a href="#%E4%BB%A3%E7%A0%81%E5%88%86%E6%9E%90">代码分析</a>
+<ul>
+<li><a href="#%E5%8A%A0%E8%BD%BD%E5%A4%A7%E6%B5%B7%E9%BE%9F%E6%A8%A1%E5%9E%8B">加载大海龟模型</a></li>
+<li><a href="#%E6%B5%B7%E5%BA%95%E6%B0%94%E6%B0%9B%E8%90%A5%E9%80%A0">海底气氛营造</a>
+<ul>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">！！！注意事项！！！</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%B9%E5%9D%97%E7%9A%84%E5%88%86%E5%B8%83">方块的分布</a></li>
+<li><a href="#%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%9A%84%E7%89%A9%E7%90%86">游戏中的物理</a></li>
+<li><a href="#%E9%9F%B3%E4%B9%90%E5%8A%A0%E8%BD%BD%E6%A8%A1%E5%9D%97-musicjs">音乐加载模块 music.js</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E6%9C%AB%E6%8E%A8%E8%8D%90">文末推荐</a>
+<ul>
+<li><a href="#pointerlockcontrolsjs-%E4%BD%9C%E8%80%85%E7%9A%84%E5%8D%9A%E5%AE%A2">PointerLockControls.js 作者的博客</a>
+<ul>
+<li><a href="#%E6%B0%B4%E6%B5%81%E6%A8%A1%E6%8B%9F">水流模拟</a></li>
+<li><a href="#%E7%81%AB%E7%84%B0%E6%A8%A1%E6%8B%9F">火焰模拟</a></li>
+<li><a href="#%E7%B2%92%E5%AD%90%E6%A8%A1%E6%8B%9F">粒子模拟</a></li>
+<li><a href="#%E5%B0%8F%E7%90%83%E7%89%A9%E7%90%86%E6%A8%A1%E6%8B%9F">小球物理模拟</a></li>
+<li><a href="#%E4%BA%91%E9%9B%BE%E6%A8%A1%E6%8B%9F">云雾模拟</a></li>
+<li><a href="#voxels_liquid">voxels_liquid</a></li>
+<li><a href="#%E5%9B%BE%E5%BD%A2%E5%8A%A8%E7%94%BB">图形动画</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
@@ -140,7 +800,7 @@
             <div class="next">下一篇</div>
             <a href="https://logic-three-body.github.io/post/games202-zuo-ye-1/">
               <h3 class="post-title">
-                GAMES202 作业1
+                GAMES202 作业1 Shadow Map PCF PCSS
               </h3>
             </a>
           </div>
