@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://logic-three-body.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-06-21T12:15:59.140Z</updated>
+    <updated>2021-06-24T11:11:38.698Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://logic-three-body.github.io/"/>
     <link rel="self" href="https://logic-three-body.github.io/atom.xml"/>
@@ -10,6 +10,135 @@
     <logo>https://logic-three-body.github.io/images/avatar.png</logo>
     <icon>https://logic-three-body.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[GAMES101->assignment2 Triangles and Z-buffering]]></title>
+        <id>https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/</id>
+        <link href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
+        </link>
+        <updated>2021-06-24T11:08:33.000Z</updated>
+        <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/logic-three-body/GameS101_IntroductionTOcomputerGraph/tree/%E4%BD%9C%E4%B8%9A1/02Z-Buffer_rasterize">here</a></p>
+<h2 id="包围盒">包围盒</h2>
+<pre><code class="language-c++">// TODO : Find out the bounding box of current triangle.
+// iterate through the pixel and find if the current pixel is inside the triangle
+int left = MIN(v[0].x(), MIN(v[1].x(), v[2].x())) - 1;
+int right = MAX(v[0].x(), MAX(v[1].x(), v[2].x())) + 1;
+int bottom = MIN(v[0].y(), MIN(v[1].y(), v[2].y())) - 1;
+int top = MAX(v[0].y(), MAX(v[1].y(), v[2].y())) + 1;
+</code></pre>
+<h2 id="三角形栅格化算法">三角形栅格化算法</h2>
+<pre><code class="language-c++">for (int x = left; x &lt;= right; x++)
+{
+    for (int y = bottom; y &lt;= top; y++)
+    {
+        if (insideTriangle(x, y, t.v))
+        {
+            std::tuple&lt;float, float, float&gt; alpha = computeBarycentric2D(x, y, t.v);
+            float w_reciprocal = 1.0 / (std::get&lt;0&gt;(alpha) / v[0].w() + std::get&lt;1&gt;(alpha) / v[1].w() + std::get&lt;2&gt;(alpha) / v[2].w());
+            float z_interpolated = std::get&lt;0&gt;(alpha) * v[0].z() / v[0].w() + std::get&lt;1&gt;(alpha) * v[1].z() / v[1].w() + std::get&lt;2&gt;(alpha) * v[2].z() / v[2].w();
+            z_interpolated *= w_reciprocal;
+            if (z_interpolated &lt; depth_buf[get_index(x, y)])
+            {
+                depth_buf[get_index(x, y)] = z_interpolated;
+                set_pixel(Vector3f(x, y, z_interpolated), t.getColor());
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="点是否在三角形内">点是否在三角形内</h2>
+<pre><code class="language-c++">static bool insideTriangle(float x, float y, const Vector3f* _v)
+{
+	// TODO : Implement this function to check if the point (x, y) is inside the triangle represented by _v[0], _v[1], _v[2]
+	float a = _v[0].x(), b = _v[0].y(), c = _v[1].x(), d = _v[1].y(), e = _v[2].x(), f = _v[2].y();
+	float t1 = (c - a)*(y - b) - (d - b)*(x - a);
+	float t2 = (e - c)*(y - d) - (f - d)*(x - c);
+	float t3 = (a - e)*(y - f) - (b - f)*(x - e);
+	bool x1 = true ? t1 &gt; 0.0:false, x2 = true ? t2 &gt; 0.0:false, x3 = true ? t3 &gt; 0.0:false;
+	bool ret = false;
+	if ((x1 &amp;x2&amp;x3) || (!x1)&amp;(!x2)&amp;(!x3)) ret = true;
+	return ret;
+}
+</code></pre>
+<h2 id="z-buffer-算法">z-buffer 算法</h2>
+<pre><code class="language-c++">//... some code
+if (z_interpolated &lt; depth_buf[get_index(x, y)])
+{
+    depth_buf[get_index(x, y)] = z_interpolated;
+    set_pixel(Vector3f(x, y, z_interpolated), t.getColor());
+}
+</code></pre>
+<h2 id="anti-aliasing">Anti-aliasing</h2>
+<pre><code class="language-c++">//4x4 SuperSampling
+const int sam_num16 = 16;
+const int xy = 2;
+const int x_coord = 0;
+const int y_coord = 1;
+float dir4x4[sam_num16][xy] = {
+    {0.125, 0.125},
+    {0.125, 0.375},
+    {0.125, 0.625},
+    {0.125, 0.875},
+    {0.375, 0.125},
+    {0.375, 0.375},
+    {0.375, 0.625},
+    {0.375, 0.875},
+    {0.625, 0.125},
+    {0.625, 0.375},
+    {0.625, 0.625},
+    {0.625, 0.875},
+    {0.875, 0.125},
+    {0.875, 0.375},
+    {0.875, 0.625},
+    {0.875, 0.875},
+};
+//2x2 SuperSampling
+const int sam_num4 = 4;
+float dir2x2[sam_num4][xy] = {
+    {0.25, 0.25},
+    {0.25, 0.75},
+    {0.75, 0.25},
+    {0.75, 0.75},
+};
+
+for (int x = left; x &lt;= right; x++)
+{
+    for (int y = bottom; y &lt;= top; y++)
+    {
+        float min_dep = INFINITY;
+        int count = 0;
+        for (int i = 0; i &lt; sam_num4; i++)
+        {
+            if (insideTriangle(x + dir2x2[i][x_coord], y + dir2x2[i][y_coord], t.v))
+            {
+                count++;
+                std::tuple&lt;float, float, float&gt; alpha = computeBarycentric2D(x, y, t.v);
+                float w_reciprocal = 1.0 / (std::get&lt;0&gt;(alpha) / v[0].w() + std::get&lt;1&gt;(alpha) / v[1].w() + std::get&lt;2&gt;(alpha) / v[2].w());
+                float z_interpolated = std::get&lt;0&gt;(alpha) * v[0].z() / v[0].w() + std::get&lt;1&gt;(alpha) * v[1].z() / v[1].w() + std::get&lt;2&gt;(alpha) * v[2].z() / v[2].w();
+                z_interpolated *= w_reciprocal;
+                min_dep = MIN(min_dep, z_interpolated);
+            }
+        }
+        if (count == 0)
+            continue;
+        if (min_dep &lt; depth_buf[get_index(x, y)])
+        {
+            depth_buf[get_index(x, y)] = min_dep;
+            set_pixel(Vector3f(x, y, min_dep), t.getColor() * count / sam_num4);
+        }
+    }
+}
+</code></pre>
+<h2 id="结果图">结果图</h2>
+<h3 id="未抗锯齿">未抗锯齿</h3>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/06/24/U5l6M1RWhAxNXrV.png" alt="result" loading="lazy"></figure>
+<h3 id="2x2-msaa">2x2 MSAA</h3>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/06/24/Nq7f9n1pWi5QK2L.png" alt="result2x2" loading="lazy"></figure>
+<h3 id="4x4-msaa">4X4 MSAA</h3>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/06/24/yPCYjwNZpR6dKlB.png" alt="result4x4" loading="lazy"></figure>
+<h2 id="参考">参考：</h2>
+<p><a href="https://blog.csdn.net/weixin_53110214/article/details/114456911">pcl运行无法解析的外部符号 __imp__calloc_dbg</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[GAMES202 -> assignment2 precoumpute radiance transfer]]></title>
         <id>https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/</id>
@@ -5670,34 +5799,6 @@ Eigen::Matrix4f get_projection_matrix(float eye_fov, float aspect_ratio, float z
 </ul>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[目录]]></title>
-        <id>https://logic-three-body.github.io/post/mu-lu/</id>
-        <link href="https://logic-three-body.github.io/post/mu-lu/">
-        </link>
-        <updated>2021-05-11T04:16:04.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="计算机图形学">计算机图形学</h2>
-<h3 id="渲染器基础">渲染器基础</h3>
-<h4 id="tinyrendergames101光栅化系列">tinyrender+GAMES101光栅化系列</h4>
-<h5 id="games101-assignment1-transform"><a href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/">GAMES101-&gt;assignment1 Transform</a></h5>
-<h5 id="tinyrender之旅-渲染管线探秘"><a href="https://logic-three-body.github.io/post/tinyrender-zhi-lu-greater-xuan-ran-guan-xian-tan-mi/">TinyRender之旅 -&gt; 渲染管线探秘</a></h5>
-<h5 id="games101-assignment3-shader-and-graphic-pipeline"><a href="https://logic-three-body.github.io/post/games101-greaterassignment3-shader-and-graphic-pipeline/">GAMES101-&gt;assignment3 Shader and Graphic pipeline</a></h5>
-<h4 id="tinyraytracegames101光线追踪系列">tinyraytrace+GAMES101光线追踪系列</h4>
-<h3 id="webgl与threejs">WebGL与THREEJS</h3>
-<h4 id="webgl-threejs-example-研究">WebGL three.js-example 研究</h4>
-<h5 id="misc_controls_pointerlock-漫游"><a href="https://logic-three-body.github.io/post/webgl-threejs-example-yan-jiu-misc_controls_pointerlock/">misc_controls_pointerlock 漫游</a></h5>
-<h5 id="threejs-shader-实现phong光照模型"><a href="https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/">THREE.JS shader 实现Phong光照模型</a></h5>
-<h5 id="webgl-shader-实现phong光照模型"><a href="https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/">WebGL shader 实现Phong光照模型</a></h5>
-<h4 id="games202高质量实时渲染">GAMES202高质量实时渲染</h4>
-<h5 id="assignment1-realtime-shadow"><a href="https://logic-three-body.github.io/post/games202-zuo-ye-1/">assignment1 realtime shadow</a></h5>
-<h5 id="assignment2-precoumpute-radiance-transfer"><a href="https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/">assignment2 precoumpute radiance transfer</a></h5>
-<h5 id="assignment3-screen-space-raytracing"><a href="https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/">assignment3 screen space raytracing</a></h5>
-<h2 id="专业课复习笔记">专业课复习笔记</h2>
-<h3 id="数字媒体技术期末总结"><a href="https://logic-three-body.github.io/post/shu-zi-mei-ti-ji-zhu-qi-mo-zong-jie/">数字媒体技术期末总结</a></h3>
-<h3 id="数字图像处理期末总结"><a href="https://logic-three-body.github.io/post/shu-zi-tu-xiang-chu-li-zhi-shi-zong-jie/">数字图像处理期末总结</a></h3>
-<h3 id="计算机网络期末总结"><a href="https://mubucm.com/doc/rqWuRRC-pG">计算机网络期末总结</a></h3>
 ]]></content>
     </entry>
 </feed>
