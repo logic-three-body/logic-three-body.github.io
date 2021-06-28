@@ -1,0 +1,284 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unity2WebGL构建日志 | Gridea</title>
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1624892190546">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Unity2WebGL构建日志 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="错误
+
+
+完整的il2cpp.exe报错:
+Exception: D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\il2cpp/build/deploy/net471/il2cpp.exe ..." />
+    <meta name="keywords" content="踩坑日记,底层内功,unity,WebGL" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://logic-three-body.github.io/">
+  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1624892190546" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://logic-three-body.github.io/post/mu-lu" class="menu">
+          目录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Unity2WebGL构建日志
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-06-28
+              </span>
+              <span>
+                17 min read
+              </span>
+              
+                <a href="https://logic-three-body.github.io/tag/vWW0QiZoE/" class="post-tag">
+                  # 踩坑日记
+                </a>
+              
+                <a href="https://logic-three-body.github.io/tag/OfnSnbDENh/" class="post-tag">
+                  # 底层内功
+                </a>
+              
+                <a href="https://logic-three-body.github.io/tag/UsuSAj3m-/" class="post-tag">
+                  # unity
+                </a>
+              
+                <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="post-tag">
+                  # WebGL
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://logic-three-body.github.io//post-images/unity2webgl-gou-jian-ri-zhi.PNG" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="错误">错误</h2>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/06/26/B2rtXNLOk9wxaj6.png" alt="image-20210626201133581" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/06/26/PkmeAix7c6ZCjsy.png" alt="image-20210626200751419" loading="lazy"></figure>
+<h3 id="完整的il2cppexe报错">完整的il2cpp.exe报错:</h3>
+<pre><code class="language-shell">Exception: D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\il2cpp/build/deploy/net471/il2cpp.exe did not run properly!
+Failed running &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\il2cpp/build/deploy/net471/il2cpp.exe&quot; --convert-to-cpp --dotnetprofile=&quot;unityaot&quot; --compile-cpp --libil2cpp-static --platform=&quot;WebGL&quot; --architecture=&quot;EmscriptenJavaScript&quot; --configuration=&quot;Release&quot; --outputpath=&quot;G:\计算机图形学\Ocean\BuildTest\UnderWaterSystem\Assets /../Temp/StagingArea/Data\Native\build.bc&quot; --cachedirectory=&quot;G:\计算机图形学\Ocean\BuildTest\UnderWaterSystem\Assets\..\Library/il2cpp_cache&quot; --compiler-flags=&quot;-Oz -DIL2CPP_EXCEPTION_DISABLED=1 &quot; --emit-method-map --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_AccessibilityModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_AIModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_AndroidJNIModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_AnimationModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_AssetBundleModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_AudioModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_ClothModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_CoreModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_CrashReportingModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_DirectorModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_DSPGraphModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_GameCenterModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_GridModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_HotReloadModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_ImageConversionModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_IMGUIModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_InputLegacyModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_InputModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_JSONSerializeModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_LocalizationModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_ParticleSystemModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_PerformanceReportingModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_Physics2DModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_PhysicsModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_ProfilerModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_ScreenCaptureModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_SharedInternalsModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_SpriteMaskModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_SpriteShapeModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_StreamingModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_SubstanceModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_SubsystemsModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_TerrainModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_TerrainPhysicsModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_TextCoreModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_TextRenderingModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_TilemapModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_TLSModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UIElementsModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UIModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UmbraModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UNETModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityAnalyticsModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityConnectModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityTestProtocolModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityWebRequestAssetBundleModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityWebRequestAudioModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityWebRequestModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityWebRequestTextureModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_UnityWebRequestWWWModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_VehiclesModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_VFXModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_VideoModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_VRModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_WebGLModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_WindModule_Dynamic.bc&quot; --additional-libraries=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/PlaybackEngines/WebGLSupport\BuildTools\lib\modules\WebGLSupport_XRModule_Dynamic.bc&quot; --profiler-report --map-file-parser=&quot;D:/Program Files/Unity/2019.4.17f1c1/Editor/Data/Tools/MapFileParser/MapFileParser.exe&quot; --directory=&quot;G:/计算机图形学/Ocean/BuildTest/UnderWaterSystem/Temp/StagingArea/Data/Managed&quot; --generatedcppdir=&quot;G:/计算机图形学/Ocean/BuildTest/UnderWaterSystem/Temp/StagingArea/Data/il2cppOutput&quot;  
+
+stdout:
+Building build.bc with EmscriptenToolChain
+	Output directory: G:\�����ͼ��ѧ\Ocean\BuildTest\UnderWaterSystem\Temp\StagingArea\Data\Native
+	Cache directory: G:\�����ͼ��ѧ\Ocean\BuildTest\UnderWaterSystem\Library\il2cpp_cache
+ObjectFiles: 157 of which compiled: 0
+Total compilation time: 101 milliseconds.
+Response file: D:\Temp\_1842515173\response.rsp
+Response file: D:\Temp\_1947989028\response.rsp
+il2cpp.exe didn't catch exception: Unity.IL2CPP.Building.BuilderFailedException: &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten_Win\python\2.7.5.3_64bit\python.exe&quot; -E &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\Emscripten\emcc&quot; -o &quot;G:\�����ͼ��ѧ\Ocean\BuildTest\UnderWaterSystem\Library\il2cpp_cache\linkresult_6419C51A308275CB21C0D680D9EAABAD\build.bc&quot; -s TOTAL_MEMORY=384MB -s DISABLE_EXCEPTION_CATCHING=0 -s WASM=0 -O3 &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_AccessibilityModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_AIModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_AndroidJNIModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_AnimationModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_AssetBundleModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_AudioModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_ClothModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_CoreModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_CrashReportingModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_DirectorModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_DSPGraphModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_GameCenterModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_GridModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_HotReloadModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_ImageConversionModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_IMGUIModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_InputLegacyModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_InputModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_JSONSerializeModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_LocalizationModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_ParticleSystemModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_PerformanceReportingModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_Physics2DModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_PhysicsModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_ProfilerModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_ScreenCaptureModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_SharedInternalsModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_SpriteMaskModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_SpriteShapeModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_StreamingModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_SubstanceModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_SubsystemsModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\PlaybackEngines\WebGLSupport\BuildTools\lib\modules\WebGLSupport_TerrainModule_Dynamic.bc&quot; &quot;D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\Playback&lt;message truncated&gt;
+</code></pre>
+<h2 id="解决过程">解决过程</h2>
+<p>分析上面问题。有个il2cpp.exe没跑对，它应该是最严重的问题，可能是它引发下面两个问题</p>
+<h3 id="看看论坛朋友们咋说">看看论坛朋友们咋说</h3>
+<h4 id="方法1消除il2cpp缓存">方法1：消除il2cpp缓存</h4>
+<p>下图这种消灭缓存的方法也试过了，不过一般针对unity突然抽风且代码无跨平台或其他问题的项目，不是本次的解决方法，第二个方法感觉也是拼运气的，和代码自身无关了（比较怀疑是项目里某些代码问题）</p>
+<p><a href="https://forum.unity.com/threads/error-building-webgl-il2cpp-exe-did-not-run-properly.468019/">链接</a></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/06/26/F1hmD3kQWTsxiBz.png" alt="image-20210626232936002" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2021/06/26/zUdhHnMYrm7SeVG.png" alt="image-20210626233143348" loading="lazy"></figure>
+<h4 id="方法2清除无用包或路径重定向-成功">方法2：清除无用包或路径重定向 成功</h4>
+<p><a href="https://forum.unity.com/threads/unity-2019-1-1f1-webgl-build-failed-unityeditor-buildplayerwindow-buildmethodexception.675961/">链接</a></p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/06/26/wGO1E3TQJWIARNk.png" alt="image-20210626225703471" loading="lazy"></figure>
+<p>如果按这位老哥说的，那我项目里唯一引入的外部包就是后处理，没它游戏运行不了，同时用重定向路径方法解决问题有可能，因为我的项目路径的确有中文（大意了...）</p>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/06/27/r5RWhD42ndPHsgN.png" alt="image-20210626230158336" loading="lazy"></figure>
+<p><strong>更换目录后仍然构建成功</strong></p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2021/06/27/cfN6x2uDQhgPqjX.png" alt="image-20210627142023913" loading="lazy"></figure>
+<p>可以看出不管是项目源文件还是构建后文件都不能有特殊字符（比如中文）</p>
+<p>不过项目虽然成功构建到WebGL可喜可贺，但是大部分效果都丢了，UI上的字符也没了（怀疑是UI也是中文字符，无法解析），所以这次的结论是构建WebGL路径一定不能有中文，同时即使成功构建，很多效果会出现缺失甚至错误的情况（由于涉及到跨平台，很多规则不一样），后续会尝试解决一些错误，写一些新的踩坑文章。</p>
+<h2 id="il2cpp">IL2CPP</h2>
+<p>不过这次也引发对IL2CPP的好奇，它究竟在Unity转换到WebGL有什么作用</p>
+<p><a href="https://docs.unity3d.com/cn/current/Manual/IL2CPP.html">IL2CPP - Unity 手册 (unity3d.com)</a></p>
+<p>从上面官方的解释看它是一种由 Unity 开发的脚本后端，可在为各种平台构建项目时替代 Mono。使用 IL2CPP 构建项目时，Unity 会在为所选平台创建本机二进制文件（例如 .exe、apk、.xap）之前将脚本和程序集内的 IL 代码转换为 C++。IL2CPP 的一些用途包括提高 Unity 项目的性能、安全性和平台兼容性。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/19972689">Unity将来时：IL2CPP是什么？ - 知乎 (zhihu.com) 2015</a></p>
+<p>网上查到国内外介绍IL2CPP基本是2015年，看起来IL2CPP年代不小了，其也是为跨平台诞生的，和Mono是同级别概念，大概逻辑如下图【看博客原文去了解历史原因吧】，“C++是一门静态语言，这就意味着我们不能使用动态语言的那些酷炫特性。运行时生 成代码并执行肯定是不可能了。这就是Unity里面提到的所谓AOT（Ahead Of Time）编译而非JIT（Just In Time）编译。&quot;博文里的这句话也可能就是本次构建错误的原因。</p>
+<p>Mono</p>
+<figure data-type="image" tabindex="8"><img src="https://pic2.zhimg.com/80/cef19147534ab017c59b755b15766679_720w.jpg" alt="img" loading="lazy"></figure>
+<p>IL2CPP</p>
+<figure data-type="image" tabindex="9"><img src="https://pic4.zhimg.com/80/a0c8e96a34348e26ea2f7763e3452ae3_720w.jpg" alt="img" loading="lazy"></figure>
+<p><a href="https://zhuanlan.zhihu.com/p/19974794">Unity3D将来时：WebGL - 知乎 (zhihu.com) 2015</a></p>
+<figure data-type="image" tabindex="10"><img src="https://pic1.zhimg.com/80/d639533a41c9db2095c37a16003bfce4_720w.jpg" alt="img" loading="lazy"></figure>
+<p>通过上述链接又了解了一套C++到js的过程</p>
+<p><a href="https://zhuanlan.zhihu.com/p/20029506">用Unity做游戏，你需要深入了解一下IL2CPP - 知乎 (zhihu.com) 2015</a></p>
+<figure data-type="image" tabindex="11"><img src="https://pic1.zhimg.com/80/db9557f4e66330679100bb290a66e3d0_720w.jpg" alt="img" loading="lazy"></figure>
+<p>以上又是一个关键转换流程图</p>
+<p><a href="https://zhuanlan.zhihu.com/p/20063880">IL2CPP 深入讲解：代码生成之旅 - 知乎 (zhihu.com)</a></p>
+<p>在Temp\StagingArea\Data\il2cppOutput下查看生成的C++（转换的C++文件非常多）,Emscripten存放临时转换的js</p>
+<p>在IL2CPP的后端处理中，通常会使用字节码剥离（byte code stripping）技术来减少可执行文件的尺寸</p>
+<figure data-type="image" tabindex="12"><img src="https://i.loli.net/2021/06/28/hO2nUtYRukDW4Ig.png" alt="image-20210628171638869" loading="lazy"></figure>
+<figure data-type="image" tabindex="13"><img src="https://i.loli.net/2021/06/28/uca8Md9knxSqzBH.png" alt="image-20210628171818310" loading="lazy"></figure>
+<p><a href="https://zhuanlan.zhihu.com/p/20167569">Unity深入讲解：方法调用介绍 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/20207712">IL2CPP 深入讲解：泛型共享 - 知乎 (zhihu.com)</a></p>
+<p>上述两个链接又介绍了IL2CPP相关优化</p>
+<p>IL2CPP所覆盖的知识已经相当底层，日后学习一下这本书补一补底层知识</p>
+<figure data-type="image" tabindex="14"><img src="https://i.loli.net/2021/06/28/keNJqCOon3Qj5cX.png" alt="image-20210628224651061" loading="lazy"></figure>
+<h2 id="参考链接">参考链接</h2>
+<p><a href="https://docs.unity3d.com/cn/current/Manual/webgl-building.html">构建和运行 WebGL 项目 - Unity 手册 (unity3d.com)</a></p>
+<p><a href="https://stackoverflow.com/questions/59061059/unity-build-exception-il2cpp-exe-did-not-run-properly">android - Unity Build - Exception: il2cpp.exe did not run properly - Stack Overflow</a></p>
+<p>https://forum.unity.com/threads/exception-il2cpp-exe-did-not-run-properly.659323/</p>
+<p><a href="https://forum.unity.com/threads/build-il2cpp-errors-please-how-fix-it.492556/">Build - IL2CPP errors - Please, how fix it? - Unity Forum</a></p>
+<p><a href="https://stackoverflow.com/questions/54194428/unable-to-build-in-unity-unityeditor-buildplayerwindowbuildmethodexception">unity3d - Unable to build In unity : &quot;UnityEditor.BuildPlayerWindow+BuildMethodException:&quot; - Stack Overflow</a></p>
+<p><a href="https://forum.unity.com/threads/unity-2019-1-1f1-webgl-build-failed-unityeditor-buildplayerwindow-buildmethodexception.675961/">Unity 2019.1.1f1 WebGL build failed : 'UnityEditor.BuildPlayerWindow+BuildMethodException' - Unity Forum</a></p>
+<p><a href="https://forum.unity.com/threads/error-building-webgl-il2cpp-exe-did-not-run-properly.468019/">Error Building webgl: il2cpp.exe did not run properly! - Unity Forum</a></p>
+<p><a href="https://forum.unity.com/threads/il2cpp-exe-did-not-run-properly-webgl.1034827/">il2cpp.exe did not run properly! WebGL - Unity Forum</a></p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E9%94%99%E8%AF%AF">错误</a>
+<ul>
+<li><a href="#%E5%AE%8C%E6%95%B4%E7%9A%84il2cppexe%E6%8A%A5%E9%94%99">完整的il2cpp.exe报错:</a></li>
+</ul>
+</li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B">解决过程</a>
+<ul>
+<li><a href="#%E7%9C%8B%E7%9C%8B%E8%AE%BA%E5%9D%9B%E6%9C%8B%E5%8F%8B%E4%BB%AC%E5%92%8B%E8%AF%B4">看看论坛朋友们咋说</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%951%E6%B6%88%E9%99%A4il2cpp%E7%BC%93%E5%AD%98">方法1：消除il2cpp缓存</a></li>
+<li><a href="#%E6%96%B9%E6%B3%952%E6%B8%85%E9%99%A4%E6%97%A0%E7%94%A8%E5%8C%85%E6%88%96%E8%B7%AF%E5%BE%84%E9%87%8D%E5%AE%9A%E5%90%91-%E6%88%90%E5%8A%9F">方法2：清除无用包或路径重定向 成功</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#il2cpp">IL2CPP</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
+              <h3 class="post-title">
+                GAMES101-&gt;assignment2 Triangles and Z-buffering
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
