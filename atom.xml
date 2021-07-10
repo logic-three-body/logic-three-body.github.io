@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://logic-three-body.github.io/</id>
     <title>Gridea</title>
-    <updated>2021-07-10T16:24:19.116Z</updated>
+    <updated>2021-07-10T16:24:59.035Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://logic-three-body.github.io/"/>
+    <link rel="self" href="https://logic-three-body.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://logic-three-body.github.io/images/avatar.png</logo>
+    <icon>https://logic-three-body.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Gridea</rights>
     <entry>
         <title type="html"><![CDATA[百人计划->3.4 延迟渲染]]></title>
-        <id>http://localhost:4000/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/</id>
-        <link href="http://localhost:4000/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/">
+        <id>https://logic-three-body.github.io/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/</id>
+        <link href="https://logic-three-body.github.io/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/">
         </link>
         <updated>2021-07-10T16:18:53.000Z</updated>
         <content type="html"><![CDATA[<h1 id="图形技术基础">图形技术基础</h1>
@@ -119,8 +119,8 @@ for tile in renderPass:
     </entry>
     <entry>
         <title type="html"><![CDATA[GAMES202->assignment4 Kulla-Conty BRDF]]></title>
-        <id>http://localhost:4000/post/games202-greaterassignment4-kulla-conty-brdf/</id>
-        <link href="http://localhost:4000/post/games202-greaterassignment4-kulla-conty-brdf/">
+        <id>https://logic-three-body.github.io/post/games202-greaterassignment4-kulla-conty-brdf/</id>
+        <link href="https://logic-three-body.github.io/post/games202-greaterassignment4-kulla-conty-brdf/">
         </link>
         <updated>2021-07-01T13:29:54.000Z</updated>
         <content type="html"><![CDATA[<h1 id="games202-assignment4-kulla-conty-brdf">GAMES202-&gt;assignment4 Kulla-Conty BRDF</h1>
@@ -365,8 +365,8 @@ float GeometrySchlickGGX(float NdotV, float roughness) {
     </entry>
     <entry>
         <title type="html"><![CDATA[观影有感之鬼妈妈]]></title>
-        <id>http://localhost:4000/post/guan-ying-you-gan-zhi-gui-ma-ma/</id>
-        <link href="http://localhost:4000/post/guan-ying-you-gan-zhi-gui-ma-ma/">
+        <id>https://logic-three-body.github.io/post/guan-ying-you-gan-zhi-gui-ma-ma/</id>
+        <link href="https://logic-three-body.github.io/post/guan-ying-you-gan-zhi-gui-ma-ma/">
         </link>
         <updated>2021-06-30T05:28:11.000Z</updated>
         <content type="html"><![CDATA[<h1 id="鬼妈妈">鬼妈妈</h1>
@@ -400,8 +400,8 @@ float GeometrySchlickGGX(float NdotV, float roughness) {
     </entry>
     <entry>
         <title type="html"><![CDATA[Unity2WebGL构建日志之il2cpp]]></title>
-        <id>http://localhost:4000/post/unity2webgl-gou-jian-ri-zhi/</id>
-        <link href="http://localhost:4000/post/unity2webgl-gou-jian-ri-zhi/">
+        <id>https://logic-three-body.github.io/post/unity2webgl-gou-jian-ri-zhi/</id>
+        <link href="https://logic-three-body.github.io/post/unity2webgl-gou-jian-ri-zhi/">
         </link>
         <updated>2021-06-28T14:51:18.000Z</updated>
         <content type="html"><![CDATA[<h2 id="错误">错误</h2>
@@ -477,8 +477,8 @@ il2cpp.exe didn't catch exception: Unity.IL2CPP.Building.BuilderFailedException:
     </entry>
     <entry>
         <title type="html"><![CDATA[GAMES101->assignment2 Triangles and Z-buffering]]></title>
-        <id>http://localhost:4000/post/games101-greaterassignment2-triangles-and-z-buffering/</id>
-        <link href="http://localhost:4000/post/games101-greaterassignment2-triangles-and-z-buffering/">
+        <id>https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/</id>
+        <link href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
         </link>
         <updated>2021-06-24T11:08:33.000Z</updated>
         <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/logic-three-body/GameS101_IntroductionTOcomputerGraph/tree/%E4%BD%9C%E4%B8%9A1/02Z-Buffer_rasterize">here</a></p>
@@ -606,8 +606,8 @@ for (int x = left; x &lt;= right; x++)
     </entry>
     <entry>
         <title type="html"><![CDATA[GAMES202 -> assignment2 precoumpute radiance transfer]]></title>
-        <id>http://localhost:4000/post/assignment2-precoumpute-radiance-transfer/</id>
-        <link href="http://localhost:4000/post/assignment2-precoumpute-radiance-transfer/">
+        <id>https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/</id>
+        <link href="https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/">
         </link>
         <updated>2021-06-18T08:33:22.000Z</updated>
         <content type="html"><![CDATA[<p>项目地址：<a href="https://github.com/logic-three-body/GAMES202_HQRTR/tree/master/Assignment2">here</a></p>
@@ -616,8 +616,8 @@ for (int x = left; x &lt;= right; x++)
     </entry>
     <entry>
         <title type="html"><![CDATA[GAMES202 -> assignment3 screen space raytracing]]></title>
-        <id>http://localhost:4000/post/assignment3-screen-space-raytracing/</id>
-        <link href="http://localhost:4000/post/assignment3-screen-space-raytracing/">
+        <id>https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/</id>
+        <link href="https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/">
         </link>
         <updated>2021-06-18T08:31:13.000Z</updated>
         <content type="html"><![CDATA[<h2 id="evaldir">EvalDir</h2>
@@ -787,8 +787,8 @@ L+=dirL*EvalDiffuse(wi,wo,uv0)*scale;
     </entry>
     <entry>
         <title type="html"><![CDATA[WebGL three.js-example 研究 ->WebGL shader 实现Phong光照模型]]></title>
-        <id>http://localhost:4000/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/</id>
-        <link href="http://localhost:4000/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/">
+        <id>https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/</id>
+        <link href="https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/">
         </link>
         <updated>2021-06-18T08:17:31.000Z</updated>
         <content type="html"><![CDATA[<h2 id="前言">前言</h2>
@@ -1016,8 +1016,8 @@ var FSHADER_SOURCE =
     </entry>
     <entry>
         <title type="html"><![CDATA[GAMES101->assignment1 Transform]]></title>
-        <id>http://localhost:4000/post/games101-greaterassignment1-transform/</id>
-        <link href="http://localhost:4000/post/games101-greaterassignment1-transform/">
+        <id>https://logic-three-body.github.io/post/games101-greaterassignment1-transform/</id>
+        <link href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/">
         </link>
         <updated>2021-06-18T07:08:56.000Z</updated>
         <content type="html"><![CDATA[<h1 id="作业1-旋转与投影">作业1 旋转与投影</h1>
@@ -1194,8 +1194,8 @@ scaleK &lt;&lt; k, 0, 0, 0,
     </entry>
     <entry>
         <title type="html"><![CDATA[Unity技术开放日 北京站]]></title>
-        <id>http://localhost:4000/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/</id>
-        <link href="http://localhost:4000/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/">
+        <id>https://logic-three-body.github.io/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/</id>
+        <link href="https://logic-three-body.github.io/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/">
         </link>
         <updated>2021-06-03T04:11:30.000Z</updated>
         <content type="html"><![CDATA[<h1 id="unity技术开放日-北京站">Unity技术开放日 北京站</h1>
