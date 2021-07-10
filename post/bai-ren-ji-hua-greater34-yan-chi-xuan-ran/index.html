@@ -1,0 +1,318 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>百人计划-&gt;3.4 延迟渲染 | Gridea</title>
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico?v=1625934249839">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="http://localhost:4000/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="百人计划-&gt;3.4 延迟渲染 | Gridea - Atom Feed" href="http://localhost:4000/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="图形技术基础
+3.4 延迟渲染
+参考教程：here
+参考笔记：add1 add2
+延迟渲染理论理解
+与前向渲染管线流程的对比
+前向渲染流程
+渲染场景：一个球体 一个正方体 4个光源【聚光灯】（红 紫 橙 红）
+
+锁定我们即将渲染的物体
+
+执..." />
+    <meta name="keywords" content="百人计划,计算机图形学" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="http://localhost:4000">
+  <img class="avatar" src="http://localhost:4000/images/avatar.png?v=1625934249839" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="http://localhost:4000post/mu-lu" class="menu">
+          目录
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              百人计划-&gt;3.4 延迟渲染
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-07-11
+              </span>
+              <span>
+                7 min read
+              </span>
+              
+                <a href="http://localhost:4000/tag/7__bL8yOT/" class="post-tag">
+                  # 百人计划
+                </a>
+              
+                <a href="http://localhost:4000/tag/DgX4T0rKAF/" class="post-tag">
+                  # 计算机图形学
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://i.loli.net/2021/07/11/j6qOSuyVoUTh1nY.png" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="图形技术基础">图形技术基础</h1>
+<h2 id="34-延迟渲染">3.4 延迟渲染</h2>
+<p>参考教程：<a href="https://www.bilibili.com/video/BV1244y1i7oV?p=2">here</a></p>
+<p>参考笔记：<a href="https://zhuanlan.zhihu.com/p/386760314">add1</a> <a href="https://www.bilibili.com/read/cv12025746">add2</a></p>
+<h3 id="延迟渲染理论理解">延迟渲染理论理解</h3>
+<h4 id="与前向渲染管线流程的对比">与前向渲染管线流程的对比</h4>
+<h5 id="前向渲染流程">前向渲染流程</h5>
+<p>渲染场景：一个球体 一个正方体 4个光源【聚光灯】（红 紫 橙 红）</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/07/06/Hb2AXVZWu4JwycK.png" alt="scene" loading="lazy"></figure>
+<p>锁定我们即将渲染的物体</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/07/06/PhHYwNJp3UX2ijM.png" alt="renderObject" loading="lazy"></figure>
+<p>执行渲染流程 此时渲染管线共执行4次pass，即对应四个光源 ；灯光直接在片元着色器中计算并叠加至最终结果</p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/07/06/K2DVrJvZ7jd9IPo.png" alt="image-20210706201948380" loading="lazy"></figure>
+<p>（图中灯光计算参考文章：<a href="https://zhuanlan.zhihu.com/p/54694743">游戏引擎中的光照算法</a>）</p>
+<p>例子运用四个光源，利用图中算法，需要4x2=8次遍历，随着光源和物体数目增多，计算量也会迅速增大（在实际操作中还需处理深度等其他数据信息，时间复杂度可能会剧烈增加）</p>
+<h5 id="延迟渲染流程">延迟渲染流程</h5>
+<p>为弥补上述渲染流程对于大量光源的计算问题，延迟渲染采取两步操作（两个pass）以减小灯光计算量</p>
+<p>第一次pass其不进行灯光计算，将可见像素信息（例如深度、法线、基本颜色）输入至GBuffer（可以理解为先将渲染信息保存到一张纹理）</p>
+<p>第二次pass，利用GBuffer储存的信息（即已知的可见像素）与光线进行计算</p>
+<p>综上所述，延迟渲染将物体和灯光分开计算，即使灯光数量很多，最后实际仅与GBuffer（理解为若干张纹理）进行计算，极大简化了计算流程（我粗浅地理解为解耦）</p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2021/07/06/SbmYkarDisdpOBf.png" alt="Defer Render" loading="lazy"></figure>
+<p>（图中灯光计算参考文章：<a href="https://zhuanlan.zhihu.com/p/54694743">游戏引擎中的光照算法</a>）</p>
+<h3 id="优点vs缺点">优点vs缺点</h3>
+<p>经过比较，可以看出延迟渲染针对多光源可以极大减少时间复杂度，但同时这是用空间换时间的做法，为了更精确的渲染结果，GBuffer需要储存的信息会更多，显存带宽也会增加更多。</p>
+<p>GBuffer提前计算了很多信息，例如深度，这对于后处理等屏幕空间的操作是意外之喜，但由于GBuffer信息是固定的，即已经是经过光栅化的结果，则不能利用MSAA进行超采样抗锯齿</p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/07/06/cNnZCmyeOx4fquH.png" alt="image-20210706210808800" loading="lazy"></figure>
+<p>推荐阅读：<a href="https://www.zhihu.com/question/20236638/answer/44821615">FXAA、FSAA与MSAA有什么区别 -文刀秋二</a></p>
+<h3 id="移动端的优化">移动端的优化</h3>
+<h4 id="tbdrtile-base-deffered-rendering">TBDR（Tile-Base-Deffered-Rendering）</h4>
+<p>目的：减少draw call调用以降低移动端GPU负荷，避免渲染画面时手机过热甚至死机</p>
+<p>为减少draw call调用，移动端gpu的方法是将整体FrameBuffer拆分为多个小块（Tiled FrameBuffer），当每一个小块均被处理后（shading），输出整个FrameBuffer，下图为<strong>IMR</strong>（从左到右至framebuffer）和<strong>TBDR</strong>（从右到左至framebuffer）对比</p>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/07/09/iNQTSOv7XuxyJp3.png" alt="image-20210709192216578" loading="lazy"></figure>
+<p>TBDR简化版流水线如图（忽略其他数据处理部分，如深度检测、剔除等）：</p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2021/07/09/gzbmJthF1qSMnPO.png" alt="image-20210709194203235" loading="lazy"></figure>
+<pre><code class="language-python"># Phase one : Tilling Phase
+'''
+For the entire render pass
+1、split viewport into a list of tiles
+2、shade all vertices
+3、bin transformed primitives into tiles
+'''
+for draw in renderPass:
+    for primitive in draw:#针对片元
+        for vertex in primitive:
+            execute_vertex_shader(vertex)
+        if primitive not culled:#若片元未被剔除，就加入tile list待后续处理
+            append_tile_list(primitive)
+            
+# Phase two : Rendering Phase      
+'''
+For each tile in the render pass
+1.load action(or clear)
+2.rasterize
+3.shade visible pixels
+4.store(or don't care)
+'''
+for tile in renderPass:
+    for primitive in tile:#tile buffer(即每一小块framebuffer)中的片元
+        for fragment in primitive:
+            execute_fragment_shader(fragment)
+</code></pre>
+<p>Tilling Phase:</p>
+<figure data-type="image" tabindex="8"><img src="https://pic1.zhimg.com/v2-3d216b61bca3530a107f74ebc114a0e8_b.webp" alt="img" loading="lazy"></figure>
+<p>（图片来源：<a href="https://zhuanlan.zhihu.com/p/363027882">移动端高性能图形开发 - 移动端GPU架构探究 - 知乎 (zhihu.com)</a>）</p>
+<h4 id="shader优化">shader优化</h4>
+<p>以下总结（包括图片来源）自：<a href="https://www.bilibili.com/video/av974058513">Unity性能优化专场</a></p>
+<p>避免隐式转化 : int4(x)+1.0-&gt;float4(int4(x)+1.0)-&gt;int4(float4(int4(x)+1.0))</p>
+<figure data-type="image" tabindex="9"><img src="https://i.loli.net/2021/07/10/M5SecrX3ujY8AmQ.png" alt="image-20210710220202902" loading="lazy"></figure>
+<p>标量数据转换为向量，提高硬件读取效率</p>
+<p>不要忽略shader指令缓存，缩短shader着色器代码</p>
+<p>shader精度：</p>
+<p>顶点精度：减少高精度使用；不把FP32（4字节单精度浮点数）数据上传到一个buffer并低精度读取，会因浪费额外精度而浪费内存储存和带宽；顶点position需要额外精度，使用FP32计算顶点位置</p>
+<p>VS输出数据（varying）精度（仅建议）：低精度存储法线切线、顶点色、小于等于512x512的纹理uv；高精度存储世界坐标、大纹理uv或wrap mode为repeat的uv</p>
+<p>Buffer与寄存器：减少shader寄存器使用（Uniform buffer数、变量数）；存储需求小时，尽量使用uniform buffer而不是SSBO(Shader Storage Buffer Object)  <a href="https://blog.csdn.net/w450468524/article/details/51649071">SSBO与UBO区别</a></p>
+<p>Texture Fetch:减少texture fetch；尽量避免随机访问；压缩纹理；使用mipmap；访问3D纹理代价高；平均看，各向异性过滤消耗是各向同性2倍</p>
+<p>Branching：减少动态分支语句（<a href="https://zhuanlan.zhihu.com/p/122467342">if与分支</a>）；静态分支可接受；提前退出的分支语句有时可提高性能</p>
+<p>Loop：unroll优化，但代价是增加寄存器用量（<a href="https://zhuanlan.zhihu.com/p/115871017">HLSL 关键词branch flatten unroll loop</a>）；ray marching每个循环多次步进</p>
+<p>low GPU occupancy（GPU占用率低）：shader耗尽内部资源（如线程、寄存器）；shader简单，线程执行完毕速度&gt;GPU创建新线程，来回切换；渲染物体占屏幕较小区域（shadow map中shadow distance过长，物体占用shadow map像素过小），分发较小线程组（thread group），GPU无线程可创建</p>
+<figure data-type="image" tabindex="10"><img src="https://i.loli.net/2021/07/10/1Dtjv6Qk2iuYCbK.png" alt="image-20210710233145086" loading="lazy"></figure>
+<p>GPU latency（GPU延迟）</p>
+<figure data-type="image" tabindex="11"><img src="https://i.loli.net/2021/07/10/KCkEmvengjNJuz1.png" alt="image-20210710234153722" loading="lazy"></figure>
+<p>针对Fragment Shader：烘焙必要数据至查询纹理(look up texture)，采样此纹理增加memory fetch时间活得结果代替ALU时间</p>
+<p>TBR GMEM Load：</p>
+<figure data-type="image" tabindex="12"><img src="https://i.loli.net/2021/07/10/fs7eKdvXQIMniZ9.png" alt="image-20210710235721886" loading="lazy"></figure>
+<p><a href="https://www.inforcecomputing.com/blog/qualcomm-snapdragon-graphics-pipeline/">GMEM</a>(The GMEM is the local memory of the GPU and is used for fast Z, color, and stencil rendering. )</p>
+<figure data-type="image" tabindex="13"><img src="https://i.loli.net/2021/07/10/LkmhJcRHToPzE8A.png" alt="image-20210710235746067" loading="lazy"></figure>
+<figure data-type="image" tabindex="14"><img src="https://i.loli.net/2021/07/11/2XIKgFSnLy3BZUu.png" alt="image-20210711000049990" loading="lazy"></figure>
+<p>GMEM Store&amp;Load:pass开始时，clear每个FBO；clear FBO全部内容（color，depth，stencil）以快速清除tile memory；对渲染到frame buffer的一个子区域，使用<a href="https://www.khronos.org/opengl/wiki/Scissor_Test_And_Framebuffer_Clearing">scissor</a> <a href="https://moderngl.readthedocs.io/en/latest/reference/framebuffer.html">scissor</a>设定需要的clear或rendering区域；不要在一帧多次切换渲染到同一个FBO</p>
+<p>Overdraw：不透明物体排序（console&amp;PC）；不透明物体不排序（PowerVR GPU - HSR - Hidden Surface Removal ; Mail  - FPK -Forward Pixel Kill ; Adreno - Low Resolution Z Pass）</p>
+<p>参考：<a href="https://gameinstitute.qq.com/community/detail/123220">针对移动端TBDR架构GPU特性的渲染优化</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/363027882">移动端高性能图形开发 - 移动端GPU架构探究 - 知乎 (zhihu.com)</a></p>
+<p>[<a href="https://www.bilibili.com/video/av974058513">Unity 活动] - 线上分享会 — 性能优化专场【回放】_哔哩哔哩_bilibili</a></p>
+<p>扩展阅读：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/259760974">IMR, TBR, TBDR 还有GPU架构方面的一些理解 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/112120206">移动设备GPU架构知识汇总 - 知乎 (zhihu.com)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/32823370">深入剖析MSAA - 知乎 (zhihu.com)</a></p>
+<p><a href="https://www.zhihu.com/question/454232769/answer/1832691014">为什么时至今日仍有人质疑手机的图形性能？ - 知乎 (zhihu.com)</a></p>
+<h3 id="存疑">存疑</h3>
+<p>分支和循环的优化手段：branch flatten 静态分支和动态分支区别 ，unroll loop 循环展开和不展开具体指什么</p>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#%E5%9B%BE%E5%BD%A2%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80">图形技术基础</a>
+<ul>
+<li><a href="#34-%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93">3.4 延迟渲染</a>
+<ul>
+<li><a href="#%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93%E7%90%86%E8%AE%BA%E7%90%86%E8%A7%A3">延迟渲染理论理解</a>
+<ul>
+<li><a href="#%E4%B8%8E%E5%89%8D%E5%90%91%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%B5%81%E7%A8%8B%E7%9A%84%E5%AF%B9%E6%AF%94">与前向渲染管线流程的对比</a>
+<ul>
+<li><a href="#%E5%89%8D%E5%90%91%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B">前向渲染流程</a></li>
+<li><a href="#%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B">延迟渲染流程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%BC%98%E7%82%B9vs%E7%BC%BA%E7%82%B9">优点vs缺点</a></li>
+<li><a href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96">移动端的优化</a>
+<ul>
+<li><a href="#tbdrtile-base-deffered-rendering">TBDR（Tile-Base-Deffered-Rendering）</a></li>
+<li><a href="#shader%E4%BC%98%E5%8C%96">shader优化</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AD%98%E7%96%91">存疑</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="http://localhost:4000/post/games202-greaterassignment4-kulla-conty-brdf/">
+              <h3 class="post-title">
+                GAMES202-&gt;assignment4 Kulla-Conty BRDF
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="http://localhost:4000/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
