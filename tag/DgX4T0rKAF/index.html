@@ -1,435 +1,331 @@
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>计算机图形学 | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626272776548">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title>计算机图形学 | 苦咖啡好喝</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626273382963">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="计算机图形学 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-  <meta name="description" content="温故而知新" />
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="喜欢图形技术~">
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1626272776548" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-      
-        <a href="https://logic-three-body.github.io/post/mu-lu" class="menu">
-          目录
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-</div>
+    <div id="app" class="main">
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：# 计算机图形学
-            </h2> 
-        </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/">
-        <h2 class="post-title">百人计划-&gt;3.4 延迟渲染</h2>
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://logic-three-body.github.io/">
+        <img src="https://logic-three-body.github.io//images/avatar.png?v=1626273382963" class="site-logo">
+        <h1 class="site-title">苦咖啡好喝</h1>
       </a>
-      <div class="post-info">
-        <span>
-          2021-07-11
-        </span>
-        <span>
-          7 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/7__bL8yOT/" class="post-tag">
-            # 百人计划
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/" class="post-feature-image" style="background-image: url('https://i.loli.net/2021/07/11/j6qOSuyVoUTh1nY.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/games202-greaterassignment4-kulla-conty-brdf/">
-        <h2 class="post-title">GAMES202-&gt;assignment4 Kulla-Conty BRDF</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-07-01
-        </span>
-        <span>
-          7 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="post-tag">
-            # WebGL
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/xWulHEmlq9/" class="post-tag">
-            # 实时渲染
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/ssu4lGM8W/" class="post-tag">
-            # GAMES202高质量实时渲染
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/games202-greaterassignment4-kulla-conty-brdf/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/games202-greaterassignment4-kulla-conty-brdf.PNG')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
-        <h2 class="post-title">GAMES101-&gt;assignment2 Triangles and Z-buffering</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-06-24
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/FD4gJZS_3/" class="post-tag">
-            # GAMES101
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/games101-greaterassignment2-triangles-and-z-buffering.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/">
-        <h2 class="post-title">GAMES202 -&gt; assignment2 precoumpute radiance transfer</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-06-18
-        </span>
-        <span>
-          1 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/xWulHEmlq9/" class="post-tag">
-            # 实时渲染
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/ssu4lGM8W/" class="post-tag">
-            # GAMES202高质量实时渲染
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/assignment2-precoumpute-radiance-transfer.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/">
-        <h2 class="post-title">GAMES202 -&gt; assignment3 screen space raytracing</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-06-18
-        </span>
-        <span>
-          4 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/xWulHEmlq9/" class="post-tag">
-            # 实时渲染
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/ssu4lGM8W/" class="post-tag">
-            # GAMES202高质量实时渲染
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/assignment3-screen-space-raytracing.PNG')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/">
-        <h2 class="post-title">WebGL three.js-example 研究 -&gt;WebGL shader 实现Phong光照模型</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-06-18
-        </span>
-        <span>
-          9 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="post-tag">
-            # WebGL
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/" class="post-feature-image" style="background-image: url('https://i.loli.net/2021/06/18/6EbAJpvYBcTsCI8.gif')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/">
-        <h2 class="post-title">GAMES101-&gt;assignment1 Transform</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-06-18
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/FD4gJZS_3/" class="post-tag">
-            # GAMES101
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/games101-greaterassignment1-transform.gif')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/">
-        <h2 class="post-title">Unity技术开放日 北京站</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-06-03
-        </span>
-        <span>
-          4 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/UsuSAj3m-/" class="post-tag">
-            # unity
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/b175y-oYhk/" class="post-tag">
-            # 会议
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/unity-ji-zhu-kai-fang-ri-bei-jing-zhan.jpg')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/">
-        <h2 class="post-title">THREE.JS shader 实现Phong光照模型</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-05-19
-        </span>
-        <span>
-          8 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/gdY_xHfc8/" class="post-tag">
-            # 渲染管线
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="post-tag">
-            # WebGL
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/BCSTft2jWm/" class="post-tag">
-            # Three.js
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/threejs-shader-shi-xian-phong-guang-zhao-mo-xing.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://logic-three-body.github.io/post/games101-greaterassignment3-shader-and-graphic-pipeline/">
-        <h2 class="post-title">GAMES101-&gt;assignment3 Shader and Graphic pipeline</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2021-05-19
-        </span>
-        <span>
-          13 min read
-        </span>
-        
-          <a href="https://logic-three-body.github.io/tag/FD4gJZS_3/" class="post-tag">
-            # GAMES101
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/gdY_xHfc8/" class="post-tag">
-            # 渲染管线
-          </a>
-        
-          <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-            # 计算机图形学
-          </a>
-        
-      </div>
-      
-        <a href="https://logic-three-body.github.io/post/games101-greaterassignment3-shader-and-graphic-pipeline/" class="post-feature-image" style="background-image: url('https://logic-three-body.github.io//post-images/games101-greaterassignment3-shader-and-graphic-pipeline.png')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-</div>
-
-        <div class="pagination-container">
-  
-  
-    <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/page/2" class="next-page">下一页</a>
-  
-</div>
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
       </div>
     </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://logic-three-body.github.io/post/mu-lu" class="site-nav">
+            目录
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      喜欢图形技术~
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: 计算机图形学</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/">
+                  <h2 class="post-title">百人计划-&gt;3.4 延迟渲染</h2>
+                </a>
+                <div class="post-date">
+                  2021-07-11
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/bai-ren-ji-hua-greater34-yan-chi-xuan-ran/">
+                  <div class="feature-container" style="background-image: url('https://i.loli.net/2021/07/11/j6qOSuyVoUTh1nY.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/games202-greaterassignment4-kulla-conty-brdf/">
+                  <h2 class="post-title">GAMES202-&gt;assignment4 Kulla-Conty BRDF</h2>
+                </a>
+                <div class="post-date">
+                  2021-07-01
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/games202-greaterassignment4-kulla-conty-brdf/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/games202-greaterassignment4-kulla-conty-brdf.PNG')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
+                  <h2 class="post-title">GAMES101-&gt;assignment2 Triangles and Z-buffering</h2>
+                </a>
+                <div class="post-date">
+                  2021-06-24
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/games101-greaterassignment2-triangles-and-z-buffering.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/">
+                  <h2 class="post-title">GAMES202 -&gt; assignment2 precoumpute radiance transfer</h2>
+                </a>
+                <div class="post-date">
+                  2021-06-18
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/assignment2-precoumpute-radiance-transfer/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/assignment2-precoumpute-radiance-transfer.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/">
+                  <h2 class="post-title">GAMES202 -&gt; assignment3 screen space raytracing</h2>
+                </a>
+                <div class="post-date">
+                  2021-06-18
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/assignment3-screen-space-raytracing/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/assignment3-screen-space-raytracing.PNG')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/">
+                  <h2 class="post-title">WebGL three.js-example 研究 -&gt;WebGL shader 实现Phong光照模型</h2>
+                </a>
+                <div class="post-date">
+                  2021-06-18
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/webgl-shader-shi-xian-phong-guang-zhao-mo-xing/">
+                  <div class="feature-container" style="background-image: url('https://i.loli.net/2021/06/18/6EbAJpvYBcTsCI8.gif')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/">
+                  <h2 class="post-title">GAMES101-&gt;assignment1 Transform</h2>
+                </a>
+                <div class="post-date">
+                  2021-06-18
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/games101-greaterassignment1-transform.gif')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/">
+                  <h2 class="post-title">Unity技术开放日 北京站</h2>
+                </a>
+                <div class="post-date">
+                  2021-06-03
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/unity-ji-zhu-kai-fang-ri-bei-jing-zhan/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/unity-ji-zhu-kai-fang-ri-bei-jing-zhan.jpg')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/">
+                  <h2 class="post-title">THREE.JS shader 实现Phong光照模型</h2>
+                </a>
+                <div class="post-date">
+                  2021-05-19
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/threejs-shader-shi-xian-phong-guang-zhao-mo-xing/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/threejs-shader-shi-xian-phong-guang-zhao-mo-xing.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://logic-three-body.github.io/post/games101-greaterassignment3-shader-and-graphic-pipeline/">
+                  <h2 class="post-title">GAMES101-&gt;assignment3 Shader and Graphic pipeline</h2>
+                </a>
+                <div class="post-date">
+                  2021-05-19
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+                <a class="right" href="https://logic-three-body.github.io/post/games101-greaterassignment3-shader-and-graphic-pipeline/">
+                  <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/games101-greaterassignment3-shader-and-graphic-pipeline.png')">
+                  </div>
+                </a>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+    <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/page/2" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
   </body>
 </html>

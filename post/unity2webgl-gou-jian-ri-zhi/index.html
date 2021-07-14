@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Unity2WebGL构建日志之il2cpp | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626272776548">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title>Unity2WebGL构建日志之il2cpp | 苦咖啡好喝</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626273382963">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Unity2WebGL构建日志之il2cpp | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -17,106 +24,90 @@
 完整的il2cpp.exe报错:
 Exception: D:\Program Files\Unity\2019.4.17f1c1\Editor\Data\il2cpp/build/deploy/net471/il2cpp.exe ..." />
     <meta name="keywords" content="踩坑日记,底层内功,unity,WebGL" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1626272776548" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://logic-three-body.github.io/">
+        <img src="https://logic-three-body.github.io//images/avatar.png?v=1626273382963" class="site-logo">
+        <h1 class="site-title">苦咖啡好喝</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
+        
+          <a href="https://logic-three-body.github.io/post/mu-lu" class="site-nav">
+            目录
+          </a>
+        
       
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-      
-        <a href="https://logic-three-body.github.io/post/mu-lu" class="menu">
-          目录
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      喜欢图形技术~
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Unity2WebGL构建日志之il2cpp
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-06-28
-              </span>
-              <span>
-                17 min read
-              </span>
-              
-                <a href="https://logic-three-body.github.io/tag/vWW0QiZoE/" class="post-tag">
-                  # 踩坑日记
-                </a>
-              
-                <a href="https://logic-three-body.github.io/tag/OfnSnbDENh/" class="post-tag">
-                  # 底层内功
-                </a>
-              
-                <a href="https://logic-three-body.github.io/tag/UsuSAj3m-/" class="post-tag">
-                  # unity
-                </a>
-              
-                <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="post-tag">
-                  # WebGL
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Unity2WebGL构建日志之il2cpp</h2>
+            <div class="post-date">2021-06-28</div>
             
-              <img class="post-feature-image" src="https://logic-three-body.github.io//post-images/unity2webgl-gou-jian-ri-zhi.PNG" alt="">
+              <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/unity2webgl-gou-jian-ri-zhi.PNG')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h2 id="错误">错误</h2>
+            <div class="post-content" v-pre>
+              <h2 id="错误">错误</h2>
 <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/06/26/B2rtXNLOk9wxaj6.png" alt="image-20210626201133581" loading="lazy"></figure>
 <figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/06/26/PkmeAix7c6ZCjsy.png" alt="image-20210626200751419" loading="lazy"></figure>
 <h3 id="完整的il2cppexe报错">完整的il2cpp.exe报错:</h3>
@@ -186,99 +177,65 @@ il2cpp.exe didn't catch exception: Unity.IL2CPP.Building.BuilderFailedException:
 <p><a href="https://forum.unity.com/threads/error-building-webgl-il2cpp-exe-did-not-run-properly.468019/">Error Building webgl: il2cpp.exe did not run properly! - Unity Forum</a></p>
 <p><a href="https://forum.unity.com/threads/il2cpp-exe-did-not-run-properly-webgl.1034827/">il2cpp.exe did not run properly! WebGL - Unity Forum</a></p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E9%94%99%E8%AF%AF">错误</a>
-<ul>
-<li><a href="#%E5%AE%8C%E6%95%B4%E7%9A%84il2cppexe%E6%8A%A5%E9%94%99">完整的il2cpp.exe报错:</a></li>
-</ul>
-</li>
-<li><a href="#%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B">解决过程</a>
-<ul>
-<li><a href="#%E7%9C%8B%E7%9C%8B%E8%AE%BA%E5%9D%9B%E6%9C%8B%E5%8F%8B%E4%BB%AC%E5%92%8B%E8%AF%B4">看看论坛朋友们咋说</a>
-<ul>
-<li><a href="#%E6%96%B9%E6%B3%951%E6%B6%88%E9%99%A4il2cpp%E7%BC%93%E5%AD%98">方法1：消除il2cpp缓存</a></li>
-<li><a href="#%E6%96%B9%E6%B3%952%E6%B8%85%E9%99%A4%E6%97%A0%E7%94%A8%E5%8C%85%E6%88%96%E8%B7%AF%E5%BE%84%E9%87%8D%E5%AE%9A%E5%90%91-%E6%88%90%E5%8A%9F">方法2：清除无用包或路径重定向 成功</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#il2cpp">IL2CPP</a></li>
-<li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://logic-three-body.github.io/tag/vWW0QiZoE/" class="tag">
+                    踩坑日记
+                  </a>
+                
+                  <a href="https://logic-three-body.github.io/tag/OfnSnbDENh/" class="tag">
+                    底层内功
+                  </a>
+                
+                  <a href="https://logic-three-body.github.io/tag/UsuSAj3m-/" class="tag">
+                    unity
+                  </a>
+                
+                  <a href="https://logic-three-body.github.io/tag/fnOXEdND7/" class="tag">
+                    WebGL
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
+                  <h3 class="post-title">
+                    GAMES101-&gt;assignment2 Triangles and Z-buffering
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://logic-three-body.github.io/post/games101-greaterassignment2-triangles-and-z-buffering/">
-              <h3 class="post-title">
-                GAMES101-&gt;assignment2 Triangles and Z-buffering
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
+
+
+
   </body>
 </html>

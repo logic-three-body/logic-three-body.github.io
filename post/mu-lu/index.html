@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>目录 | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626272776548">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title>目录 | 苦咖啡好喝</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626273382963">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="目录 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -17,90 +24,90 @@ tinyrender+GAMES101光栅化系列
 GAMES101-&gt;assignment1 Transform
 GAMES101-&gt;assignment2 Triangles and Z-buffer..." />
     <meta name="keywords" content="" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1626272776548" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://logic-three-body.github.io/">
+        <img src="https://logic-three-body.github.io//images/avatar.png?v=1626273382963" class="site-logo">
+        <h1 class="site-title">苦咖啡好喝</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
+        
+          <a href="https://logic-three-body.github.io/post/mu-lu" class="site-nav">
+            目录
+          </a>
+        
       
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-      
-        <a href="https://logic-three-body.github.io/post/mu-lu" class="menu">
-          目录
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      喜欢图形技术~
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              目录
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-05-11
-              </span>
-              <span>
-                1 min read
-              </span>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">目录</h2>
+            <div class="post-date">2021-05-11</div>
             
-              <img class="post-feature-image" src="https://logic-three-body.github.io//post-images/mu-lu.jpg" alt="">
+              <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/mu-lu.jpg')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h2 id="计算机图形学">计算机图形学</h2>
+            <div class="post-content" v-pre>
+              <h2 id="计算机图形学">计算机图形学</h2>
 <h3 id="渲染器基础">渲染器基础</h3>
 <h4 id="tinyrendergames101光栅化系列">tinyrender+GAMES101光栅化系列</h4>
 <h5 id="games101-assignment1-transform"><a href="https://logic-three-body.github.io/post/games101-greaterassignment1-transform/">GAMES101-&gt;assignment1 Transform</a></h5>
@@ -129,140 +136,45 @@ GAMES101-&gt;assignment2 Triangles and Z-buffer..." />
 <h3 id="数字图像处理期末总结"><a href="https://logic-three-body.github.io/post/shu-zi-tu-xiang-chu-li-zhi-shi-zong-jie/">数字图像处理期末总结</a></h3>
 <h3 id="计算机网络期末总结"><a href="https://mubucm.com/doc/rqWuRRC-pG">计算机网络期末总结</a></h3>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6">计算机图形学</a>
-<ul>
-<li><a href="#%E6%B8%B2%E6%9F%93%E5%99%A8%E5%9F%BA%E7%A1%80">渲染器基础</a>
-<ul>
-<li><a href="#tinyrendergames101%E5%85%89%E6%A0%85%E5%8C%96%E7%B3%BB%E5%88%97">tinyrender+GAMES101光栅化系列</a>
-<ul>
-<li><a href="#games101-assignment1-transform">GAMES101-&gt;assignment1 Transform</a></li>
-<li><a href="#games101-assignment2-triangles-and-z-buffering">GAMES101-&gt;assignment2 Triangles and Z-buffering</a></li>
-<li><a href="#tinyrender%E4%B9%8B%E6%97%85-%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%8E%A2%E7%A7%98">TinyRender之旅 -&gt; 渲染管线探秘</a></li>
-<li><a href="#games101-assignment3-shader-and-graphic-pipeline">GAMES101-&gt;assignment3 Shader and Graphic pipeline</a></li>
-</ul>
-</li>
-<li><a href="#tinyraytracegames101%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E7%B3%BB%E5%88%97">tinyraytrace+GAMES101光线追踪系列</a></li>
-</ul>
-</li>
-<li><a href="#webgl%E4%B8%8Ethreejs">WebGL与THREEJS</a>
-<ul>
-<li><a href="#webgl-threejs-example-%E7%A0%94%E7%A9%B6">WebGL three.js-example 研究</a>
-<ul>
-<li><a href="#misc_controls_pointerlock-%E6%BC%AB%E6%B8%B8">misc_controls_pointerlock 漫游</a></li>
-<li><a href="#threejs-shader-%E5%AE%9E%E7%8E%B0phong%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B">THREE.JS shader 实现Phong光照模型</a></li>
-<li><a href="#webgl-shader-%E5%AE%9E%E7%8E%B0phong%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B">WebGL shader 实现Phong光照模型</a></li>
-</ul>
-</li>
-<li><a href="#games202%E9%AB%98%E8%B4%A8%E9%87%8F%E5%AE%9E%E6%97%B6%E6%B8%B2%E6%9F%93">GAMES202高质量实时渲染</a>
-<ul>
-<li><a href="#assignment1-realtime-shadow">assignment1 realtime shadow</a></li>
-<li><a href="#assignment2-precoumpute-radiance-transfer">assignment2 precoumpute radiance transfer</a></li>
-<li><a href="#assignment3-screen-space-raytracing">assignment3 screen space raytracing</a></li>
-<li><a href="#assignment4-kulla-conty-brdf">assignment4 Kulla-Conty BRDF</a></li>
-</ul>
-</li>
-<li><a href="#%E7%99%BE%E4%BA%BA%E8%AE%A1%E5%88%92">百人计划</a>
-<ul>
-<li><a href="#34-%E5%BB%B6%E8%BF%9F%E6%B8%B2%E6%9F%93">3.4 延迟渲染</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%B8%A9%E5%9D%91%E6%97%A5%E5%BF%97">踩坑日志</a>
-<ul>
-<li><a href="#unity2webgl%E6%9E%84%E5%BB%BA%E6%97%A5%E5%BF%97-il2cpp">Unity2WebGL构建日志-il2cpp</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#%E8%A7%82%E5%BD%B1%E6%9C%89%E6%84%9F">观影有感</a>
-<ul>
-<li><a href="#%E9%AC%BC%E5%A6%88%E5%A6%88">鬼妈妈</a></li>
-</ul>
-</li>
-<li><a href="#%E4%B8%93%E4%B8%9A%E8%AF%BE%E5%A4%8D%E4%B9%A0%E7%AC%94%E8%AE%B0">专业课复习笔记</a>
-<ul>
-<li><a href="#%E6%95%B0%E5%AD%97%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93">数字媒体技术期末总结</a></li>
-<li><a href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93">数字图像处理期末总结</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%9C%9F%E6%9C%AB%E6%80%BB%E7%BB%93">计算机网络期末总结</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://logic-three-body.github.io/post/tinyrender-zhi-lu-greater-xuan-ran-guan-xian-tan-mi/">
+                  <h3 class="post-title">
+                    TinyRender之旅 -&gt; 渲染管线探秘
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://logic-three-body.github.io/post/tinyrender-zhi-lu-greater-xuan-ran-guan-xian-tan-mi/">
-              <h3 class="post-title">
-                TinyRender之旅 -&gt; 渲染管线探秘
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
+
+
+
   </body>
 </html>

@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Unity技术开放日 北京站 | Gridea</title>
-<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626272776548">
-<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+    <meta charset="utf-8" >
+
+<title>Unity技术开放日 北京站 | 苦咖啡好喝</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://logic-three-body.github.io//favicon.ico?v=1626273382963">
 <link rel="stylesheet" href="https://logic-three-body.github.io//styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="Unity技术开放日 北京站 | Gridea - Atom Feed" href="https://logic-three-body.github.io//atom.xml">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 
 
@@ -15,102 +22,90 @@
 前言
 unity官方来北京啦，我也是第一次参加这种官方活动，还比较紧张，但是现场气氛相当活泼，讲师大佬们都非常有趣，非常硬核，感觉和看线上直播还是有很大区别，原来官方的讲师大佬如此亲切，就像朋友聊天一样，感觉非..." />
     <meta name="keywords" content="unity,会议,计算机图形学" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://logic-three-body.github.io/">
-  <img class="avatar" src="https://logic-three-body.github.io//images/avatar.png?v=1626272776548" alt="">
-  </a>
-  <h1 class="site-title">
-    Gridea
-  </h1>
-  <p class="site-description">
-    温故而知新
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://logic-three-body.github.io/">
+        <img src="https://logic-three-body.github.io//images/avatar.png?v=1626273382963" class="site-logo">
+        <h1 class="site-title">苦咖啡好喝</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
       
-        <a href="/tags" class="menu">
-          标签
-        </a>
+        
+          <a href="https://logic-three-body.github.io/post/mu-lu" class="site-nav">
+            目录
+          </a>
+        
       
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-      
-        <a href="https://logic-three-body.github.io/post/mu-lu" class="menu">
-          目录
-        </a>
-      
-    
+    </div>
   </div>
-  <div class="social-container">
-    
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
       
-    
+        
+      
+    </div>
+    <div class="site-description">
+      喜欢图形技术~
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">RSS</a>
+    </div>
   </div>
 </div>
 
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Unity技术开放日 北京站
-            </h2>
-            <div class="post-info">
-              <span>
-                2021-06-03
-              </span>
-              <span>
-                4 min read
-              </span>
-              
-                <a href="https://logic-three-body.github.io/tag/UsuSAj3m-/" class="post-tag">
-                  # unity
-                </a>
-              
-                <a href="https://logic-three-body.github.io/tag/b175y-oYhk/" class="post-tag">
-                  # 会议
-                </a>
-              
-                <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="post-tag">
-                  # 计算机图形学
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Unity技术开放日 北京站</h2>
+            <div class="post-date">2021-06-03</div>
             
-              <img class="post-feature-image" src="https://logic-three-body.github.io//post-images/unity-ji-zhu-kai-fang-ri-bei-jing-zhan.jpg" alt="">
+              <div class="feature-container" style="background-image: url('https://logic-three-body.github.io//post-images/unity-ji-zhu-kai-fang-ri-bei-jing-zhan.jpg')">
+              </div>
             
-            <div class="post-content-wrapper">
-              <div class="post-content">
-                <h1 id="unity技术开放日-北京站">Unity技术开放日 北京站</h1>
+            <div class="post-content" v-pre>
+              <h1 id="unity技术开放日-北京站">Unity技术开放日 北京站</h1>
 <h2 id="前言">前言</h2>
 <p>unity官方来北京啦，我也是第一次参加这种官方活动，还比较紧张，但是现场气氛相当活泼，讲师大佬们都非常有趣，非常硬核，感觉和看线上直播还是有很大区别，原来官方的讲师大佬如此亲切，就像朋友聊天一样，感觉非常好！这篇博客先来说几个我印象深刻的吧（随着我的学习，也会对这篇博客的内容更新~）</p>
 <p><strong>注：本文图片内容主要来源：</strong><a href="https://unity.cn/ask/question/604884f5edbc2a001f945623">官方ppt</a></p>
@@ -156,87 +151,61 @@ HDRP 中提供了一个反射层级来为屏幕上的每个像素提供尽量正
 <p>千里之行，始于足下，各位加油！<br>
 <img src="https://i.loli.net/2021/06/03/aj6lZKB92rR7Mhd.jpg" alt="" loading="lazy"></p>
 
-              </div>
-              <div class="toc-container">
-                <ul class="markdownIt-TOC">
-<li><a href="#unity%E6%8A%80%E6%9C%AF%E5%BC%80%E6%94%BE%E6%97%A5-%E5%8C%97%E4%BA%AC%E7%AB%99">Unity技术开放日 北京站</a>
-<ul>
-<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
-<li><a href="#hdrp%E6%89%93%E5%85%89%E5%AE%9E%E8%B7%B5">HDRP打光实践</a></li>
-<li><a href="#%E4%BD%8E%E6%88%90%E6%9C%AC%E6%B0%B4%E4%BD%93%E6%B8%B2%E6%9F%93%E9%BB%8E%E6%98%8E%E4%B9%8B%E6%B5%B7">低成本水体渲染&amp;黎明之海</a></li>
-<li><a href="#unity-%E5%BA%95%E5%B1%82%E6%A8%A1%E5%9E%8B%E4%B9%8B%E5%86%85%E5%AD%98">Unity 底层模型之内存</a></li>
-<li><a href="#%E5%90%8E%E8%AE%B0">后记</a></li>
-</ul>
-</li>
-</ul>
-
-              </div>
             </div>
-          </article>
-        </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://logic-three-body.github.io/tag/UsuSAj3m-/" class="tag">
+                    unity
+                  </a>
+                
+                  <a href="https://logic-three-body.github.io/tag/b175y-oYhk/" class="tag">
+                    会议
+                  </a>
+                
+                  <a href="https://logic-three-body.github.io/tag/DgX4T0rKAF/" class="tag">
+                    计算机图形学
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://logic-three-body.github.io/post/shu-zi-tu-xiang-chu-li-zhi-shi-zong-jie/">
+                  <h3 class="post-title">
+                    数字图像处理知识总结
+                  </h3>
+                </a>
+              </div>
+            
 
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://logic-three-body.github.io/post/shu-zi-tu-xiang-chu-li-zhi-shi-zong-jie/">
-              <h3 class="post-title">
-                数字图像处理知识总结
-              </h3>
-            </a>
+            
+
           </div>
-        
 
-        
-
-        <div class="site-footer">
-  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
-  <a class="rss" href="https://logic-three-body.github.io//atom.xml" target="_blank">
-    <i class="ri-rss-line"></i> RSS
-  </a>
-</div>
-
+        </div>
       </div>
     </div>
 
-    <script>
-      hljs.initHighlightingOnLoad()
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
 
-      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+AOS.init();
 
-      // This should probably be throttled.
-      // Especially because it triggers during smooth scrolling.
-      // https://lodash.com/docs/4.17.10#throttle
-      // You could do like...
-      // window.addEventListener("scroll", () => {
-      //    _.throttle(doThatStuff, 100);
-      // });
-      // Only not doing it here to keep this Pen dependency-free.
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
-      window.addEventListener("scroll", event => {
-        let fromTop = window.scrollY;
+</script>
 
-        mainNavLinks.forEach((link, index) => {
-          let section = document.getElementById(decodeURI(link.hash).substring(1));
-          let nextSection = null
-          if (mainNavLinks[index + 1]) {
-            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-          }
-          if (section.offsetTop <= fromTop) {
-            if (nextSection) {
-              if (nextSection.offsetTop > fromTop) {
-                link.classList.add("current");
-              } else {
-                link.classList.remove("current");    
-              }
-            } else {
-              link.classList.add("current");
-            }
-          } else {
-            link.classList.remove("current");
-          }
-        });
-      });
 
-    </script>
+
+
+
+
   </body>
 </html>
